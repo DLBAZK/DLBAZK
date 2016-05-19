@@ -72,6 +72,7 @@ type
     clientdtDestChYear: TStringField;
     clientdtSourceCh0A01: TStringField;
     clientdtSourceChYear: TStringField;
+    FlatPanel8: TFlatPanel;
     AdvbtnSave: TAdvGlowButton;
     procedure suiedtstartKeyPress(Sender: TObject; var Key: Char);
     procedure FlatbtnAllRightClick(Sender: TObject);
@@ -462,5 +463,10 @@ begin
   if not (Key  in ['0'..'9',#8,#13]) then
     Key := #0;
 end;
+
+initialization
+  Classes.RegisterClass(TFrmBaSx);
+finalization
+  Classes.UnRegisterClass(TFrmBaSx);
 
 end.

@@ -262,38 +262,6 @@ inherited FrmBaSx: TFrmBaSx
           ReturnIsTab = False
           Version = '1.3.4.1'
         end
-        object AdvbtnSave: TAdvGlowButton
-          Left = 1120
-          Top = 42
-          Width = 100
-          Height = 41
-          Hint = #20445#23384
-          Caption = #20445#23384
-          ImageIndex = 10
-          NotesFont.Charset = DEFAULT_CHARSET
-          NotesFont.Color = clWindowText
-          NotesFont.Height = -11
-          NotesFont.Name = 'Tahoma'
-          NotesFont.Style = []
-          TabOrder = 11
-          OnClick = AdvbtnSaveClick
-          Appearance.ColorChecked = 16111818
-          Appearance.ColorCheckedTo = 16367008
-          Appearance.ColorDisabled = 15921906
-          Appearance.ColorDisabledTo = 15921906
-          Appearance.ColorDown = 16111818
-          Appearance.ColorDownTo = 16367008
-          Appearance.ColorHot = 16117985
-          Appearance.ColorHotTo = 16372402
-          Appearance.ColorMirrorHot = 16107693
-          Appearance.ColorMirrorHotTo = 16775412
-          Appearance.ColorMirrorDown = 16102556
-          Appearance.ColorMirrorDownTo = 16768988
-          Appearance.ColorMirrorChecked = 16102556
-          Appearance.ColorMirrorCheckedTo = 16768988
-          Appearance.ColorMirrorDisabled = 11974326
-          Appearance.ColorMirrorDisabledTo = 15921906
-        end
       end
     end
     object FlatPanel1: TFlatPanel
@@ -363,7 +331,7 @@ inherited FrmBaSx: TFrmBaSx
         Left = 1
         Top = 33
         Width = 587
-        Height = 451
+        Height = 399
         Align = alClient
         DataGrouping.GroupLevels = <>
         DataSource = dsDest
@@ -556,6 +524,51 @@ inherited FrmBaSx: TFrmBaSx
               end
             end
           end
+        end
+      end
+      object FlatPanel8: TFlatPanel
+        Left = 1
+        Top = 432
+        Width = 587
+        Height = 52
+        ParentColor = True
+        Align = alBottom
+        TabOrder = 2
+        object AdvbtnSave: TAdvGlowButton
+          Left = 486
+          Top = 1
+          Width = 100
+          Height = 50
+          Hint = #20445#23384
+          Align = alRight
+          Caption = #20445#23384
+          ImageIndex = 10
+          NotesFont.Charset = DEFAULT_CHARSET
+          NotesFont.Color = clWindowText
+          NotesFont.Height = -11
+          NotesFont.Name = 'Tahoma'
+          NotesFont.Style = []
+          TabOrder = 0
+          OnClick = AdvbtnSaveClick
+          Appearance.ColorChecked = 16111818
+          Appearance.ColorCheckedTo = 16367008
+          Appearance.ColorDisabled = 15921906
+          Appearance.ColorDisabledTo = 15921906
+          Appearance.ColorDown = 16111818
+          Appearance.ColorDownTo = 16367008
+          Appearance.ColorHot = 16117985
+          Appearance.ColorHotTo = 16372402
+          Appearance.ColorMirrorHot = 16107693
+          Appearance.ColorMirrorHotTo = 16775412
+          Appearance.ColorMirrorDown = 16102556
+          Appearance.ColorMirrorDownTo = 16768988
+          Appearance.ColorMirrorChecked = 16102556
+          Appearance.ColorMirrorCheckedTo = 16768988
+          Appearance.ColorMirrorDisabled = 11974326
+          Appearance.ColorMirrorDisabledTo = 15921906
+          ExplicitLeft = 281
+          ExplicitTop = 11
+          ExplicitHeight = 41
         end
       end
     end
