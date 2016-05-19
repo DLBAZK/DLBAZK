@@ -9,9 +9,12 @@ inherited FrmBaSx: TFrmBaSx
   inherited advfcstsbr: TAdvOfficeStatusBar
     Top = 599
     Width = 1237
+    ExplicitTop = 599
+    ExplicitWidth = 1237
   end
   inherited advtlbrpgr1: TAdvToolBarPager
     Width = 1237
+    ExplicitWidth = 1237
     inherited AdvPage1: TAdvPage
       Width = 1229
       ExplicitWidth = 1229
@@ -20,9 +23,8 @@ inherited FrmBaSx: TFrmBaSx
   inherited AdvPanel1: TAdvPanel
     Width = 1237
     Height = 574
-    ExplicitTop = 31
-    ExplicitWidth = 863
-    ExplicitHeight = 389
+    ExplicitWidth = 1237
+    ExplicitHeight = 574
     FullHeight = 200
     object AdvPanel2: TAdvPanel
       Left = 0
@@ -54,7 +56,6 @@ inherited FrmBaSx: TFrmBaSx
       StatusBar.Font.Height = -11
       StatusBar.Font.Name = 'Tahoma'
       StatusBar.Font.Style = []
-      ExplicitWidth = 863
       FullHeight = 200
       object AdvGroupBox1: TAdvGroupBox
         Left = 0
@@ -64,65 +65,52 @@ inherited FrmBaSx: TFrmBaSx
         Align = alClient
         Caption = #30149#20363#31579#36873#26465#20214
         TabOrder = 0
-        ExplicitWidth = 863
-        ExplicitHeight = 105
-        object EllipsLabel1: TEllipsLabel
-          Left = 10
-          Top = 23
-          Width = 72
-          Height = 13
-          Caption = #20986#38498#26085#26399#33539#22260
-          EllipsType = etNone
-          Version = '1.0.0.0'
+        object dladvChkZyts: TDLAdvCheckBox
+          Left = 9
+          Top = 56
+          Width = 208
+          Height = 20
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = #24494#36719#38597#40657
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 8
+          Alignment = taLeftJustify
+          Caption = #20303#38498#22825#25968'                             '#21040
+          ReturnIsTab = False
+          Version = '1.3.4.1'
         end
-        object EllipsLabel2: TEllipsLabel
-          Left = 10
-          Top = 63
-          Width = 48
-          Height = 13
-          Caption = #20303#38498#22825#25968
-          EllipsType = etNone
-          Version = '1.0.0.0'
-        end
-        object EllipsLabel3: TEllipsLabel
-          Left = 346
-          Top = 23
-          Width = 24
-          Height = 13
-          Caption = #31185#23460
-          EllipsType = etNone
-          Version = '1.0.0.0'
-        end
-        object EllipsLabel4: TEllipsLabel
-          Left = 190
-          Top = 23
-          Width = 12
-          Height = 13
-          Caption = #33267
-          EllipsType = etNone
-          Version = '1.0.0.0'
-        end
-        object EllipsLabel5: TEllipsLabel
-          Left = 190
-          Top = 63
-          Width = 12
-          Height = 13
-          Caption = #33267
-          EllipsType = etNone
-          Version = '1.0.0.0'
+        object dladvChkCH0A27: TDLAdvCheckBox
+          Left = 9
+          Top = 19
+          Width = 208
+          Height = 20
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = #24494#36719#38597#40657
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 7
+          Alignment = taLeftJustify
+          Caption = #20986#38498#26085#26399'                             '#21040
+          ReturnIsTab = False
+          Version = '1.3.4.1'
         end
         object advDtpks: TAdvDateTimePicker
           Left = 91
           Top = 19
           Width = 81
           Height = 21
-          Date = 42507.468192141200000000
-          Time = 42507.468192141200000000
+          Date = 42507.468182870370000000
+          Time = 42507.468182870370000000
           Kind = dkDate
           TabOrder = 0
           BorderStyle = bsSingle
           Ctl3D = True
-          DateTime = 42507.468192141200000000
+          DateTime = 42507.468182870370000000
           Version = '1.2.0.1'
           LabelFont.Charset = DEFAULT_CHARSET
           LabelFont.Color = clWindowText
@@ -157,6 +145,7 @@ inherited FrmBaSx: TFrmBaSx
           UIStyle = WinXP
           BorderColor = 6842472
           TabOrder = 2
+          OnExit = suiedtstartExit
           OnKeyPress = suiedtstartKeyPress
         end
         object suiedtEnd: TsuiEdit
@@ -167,50 +156,12 @@ inherited FrmBaSx: TFrmBaSx
           UIStyle = WinXP
           BorderColor = 6842472
           TabOrder = 3
+          OnExit = suiedtstartExit
           OnKeyPress = suiedtstartKeyPress
         end
-        object suiComboBox1: TsuiComboBox
-          Left = 376
-          Top = 20
-          Width = 103
-          Height = 21
-          UIStyle = DeepBlue
-          BorderColor = clBlack
-          ArrowColor = clBlack
-          ButtonColor = 15263976
-          ItemHeight = 13
-          TabOrder = 4
-          Text = 'suiComboBox1'
-        end
-        object suiCheckBox1: TsuiCheckBox
-          Left = 348
-          Top = 57
-          Width = 45
-          Height = 19
-          UIStyle = WinXP
-          AutoSize = True
-          Checked = False
-          Caption = #27515#20129
-          TabOrder = 5
-          State = cbUnchecked
-          Transparent = True
-        end
-        object suiCheckBox2: TsuiCheckBox
-          Left = 434
-          Top = 57
-          Width = 45
-          Height = 19
-          UIStyle = WinXP
-          AutoSize = True
-          Checked = False
-          Caption = #25163#26415
-          TabOrder = 6
-          State = cbUnchecked
-          Transparent = True
-        end
         object AdvGlowButton1: TAdvGlowButton
-          Left = 504
-          Top = 42
+          Left = 542
+          Top = 52
           Width = 97
           Height = 31
           Caption = #31579#36873
@@ -227,7 +178,105 @@ inherited FrmBaSx: TFrmBaSx
           NotesFont.Name = 'Tahoma'
           NotesFont.Style = []
           ParentFont = False
-          TabOrder = 7
+          TabOrder = 4
+          OnClick = AdvGlowButton1Click
+          Appearance.ColorChecked = 16111818
+          Appearance.ColorCheckedTo = 16367008
+          Appearance.ColorDisabled = 15921906
+          Appearance.ColorDisabledTo = 15921906
+          Appearance.ColorDown = 16111818
+          Appearance.ColorDownTo = 16367008
+          Appearance.ColorHot = 16117985
+          Appearance.ColorHotTo = 16372402
+          Appearance.ColorMirrorHot = 16107693
+          Appearance.ColorMirrorHotTo = 16775412
+          Appearance.ColorMirrorDown = 16102556
+          Appearance.ColorMirrorDownTo = 16768988
+          Appearance.ColorMirrorChecked = 16102556
+          Appearance.ColorMirrorCheckedTo = 16768988
+          Appearance.ColorMirrorDisabled = 11974326
+          Appearance.ColorMirrorDisabledTo = 15921906
+        end
+        object AdvedtCH0A23: TAdvEdit
+          Left = 401
+          Top = 17
+          Width = 121
+          Height = 23
+          EmptyTextStyle = []
+          LabelFont.Charset = DEFAULT_CHARSET
+          LabelFont.Color = clWindowText
+          LabelFont.Height = -11
+          LabelFont.Name = 'Tahoma'
+          LabelFont.Style = []
+          Lookup.Separator = ';'
+          Color = clWindow
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = #24494#36719#38597#40657
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 5
+          Visible = True
+          OnEnter = AdvedtCH0A23Enter
+          OnExit = AdvedtCH0A23Exit
+          OnKeyDown = AdvedtCH0A23KeyDown
+          Version = '2.9.4.1'
+        end
+        object dladvChkCH0A23: TDLAdvCheckBox
+          Left = 330
+          Top = 20
+          Width = 71
+          Height = 20
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = #24494#36719#38597#40657
+          Font.Style = []
+          ParentFont = False
+          TabOrder = 6
+          Alignment = taLeftJustify
+          Caption = #20986#38498#31185#23460
+          ReturnIsTab = False
+          Version = '1.3.4.1'
+        end
+        object advckbDeath: TAdvOfficeCheckBox
+          Left = 330
+          Top = 53
+          Width = 55
+          Height = 20
+          TabOrder = 9
+          Alignment = taLeftJustify
+          Caption = #27515#20129
+          ReturnIsTab = False
+          Version = '1.3.4.1'
+        end
+        object advckbOPS: TAdvOfficeCheckBox
+          Left = 405
+          Top = 53
+          Width = 55
+          Height = 20
+          TabOrder = 10
+          Alignment = taLeftJustify
+          Caption = #25163#26415
+          ReturnIsTab = False
+          Version = '1.3.4.1'
+        end
+        object AdvbtnSave: TAdvGlowButton
+          Left = 1120
+          Top = 42
+          Width = 100
+          Height = 41
+          Hint = #20445#23384
+          Caption = #20445#23384
+          ImageIndex = 10
+          NotesFont.Charset = DEFAULT_CHARSET
+          NotesFont.Color = clWindowText
+          NotesFont.Height = -11
+          NotesFont.Name = 'Tahoma'
+          NotesFont.Style = []
+          TabOrder = 11
+          OnClick = AdvbtnSaveClick
           Appearance.ColorChecked = 16111818
           Appearance.ColorCheckedTo = 16367008
           Appearance.ColorDisabled = 15921906
@@ -269,10 +318,8 @@ inherited FrmBaSx: TFrmBaSx
         ParentColor = True
         Align = alTop
         TabOrder = 0
-        ExplicitLeft = 2
-        ExplicitTop = 6
-        ExplicitWidth = 477
         object suichkCheckAll: TsuiCheckBox
+          Tag = 201
           Left = 9
           Top = 5
           Width = 45
@@ -284,8 +331,10 @@ inherited FrmBaSx: TFrmBaSx
           TabOrder = 0
           State = cbUnchecked
           Transparent = False
+          OnClick = suichkAllClick
         end
         object suichkinverseAll: TsuiCheckBox
+          Tag = 202
           Left = 64
           Top = 5
           Width = 45
@@ -297,14 +346,17 @@ inherited FrmBaSx: TFrmBaSx
           TabOrder = 1
           State = cbUnchecked
           Transparent = False
+          OnClick = suichkAllClick
         end
         object FlatbtnAllCancle: TFlatButton
+          Tag = 203
           Left = 115
           Top = 5
           Width = 65
           Height = 25
           Caption = #20840#21462#28040
           TabOrder = 2
+          OnClick = FlatbtnAllCancleClick
         end
       end
       object dbgrdhDest: TDBGridEh
@@ -314,6 +366,7 @@ inherited FrmBaSx: TFrmBaSx
         Height = 451
         Align = alClient
         DataGrouping.GroupLevels = <>
+        DataSource = dsDest
         Flat = True
         FooterColor = clWindow
         FooterFont.Charset = ANSI_CHARSET
@@ -332,6 +385,7 @@ inherited FrmBaSx: TFrmBaSx
           item
             Checkboxes = True
             EditButtons = <>
+            FieldName = 'chk'
             Footers = <>
             Title.Alignment = taCenter
             Title.Caption = #36873#25321
@@ -339,36 +393,42 @@ inherited FrmBaSx: TFrmBaSx
           end
           item
             EditButtons = <>
+            FieldName = 'CH0A00'
             Footers = <>
             Title.Alignment = taCenter
             Title.Caption = #20303#38498#21495
           end
           item
             EditButtons = <>
+            FieldName = 'CH0A03'
             Footers = <>
             Title.Alignment = taCenter
             Title.Caption = #22995#21517
           end
           item
             EditButtons = <>
+            FieldName = 'CH0A03'
             Footers = <>
             Title.Alignment = taCenter
             Title.Caption = #24615#21035
           end
           item
             EditButtons = <>
+            FieldName = 'CH0A23'
             Footers = <>
             Title.Alignment = taCenter
             Title.Caption = #20986#38498#31185#23460
           end
           item
             EditButtons = <>
+            FieldName = 'CH0A27'
             Footers = <>
             Title.Alignment = taCenter
             Title.Caption = #20986#38498#26085#26399
           end
           item
             EditButtons = <>
+            FieldName = 'CH0A33'
             Footers = <>
             Title.Alignment = taCenter
             Title.Caption = #20027#31649#21307#24072
@@ -383,7 +443,6 @@ inherited FrmBaSx: TFrmBaSx
             ParentColor = True
             Align = alLeft
             TabOrder = 0
-            ExplicitLeft = -561
             object FlatPanel7: TFlatPanel
               Left = 1
               Top = 1
@@ -522,8 +581,8 @@ inherited FrmBaSx: TFrmBaSx
         ParentColor = True
         Align = alTop
         TabOrder = 0
-        ExplicitWidth = 559
         object suichkAll: TsuiCheckBox
+          Tag = 101
           Left = 9
           Top = 5
           Width = 45
@@ -535,8 +594,10 @@ inherited FrmBaSx: TFrmBaSx
           TabOrder = 0
           State = cbUnchecked
           Transparent = False
+          OnClick = suichkAllClick
         end
         object suichkinverse: TsuiCheckBox
+          Tag = 102
           Left = 64
           Top = 5
           Width = 45
@@ -548,14 +609,17 @@ inherited FrmBaSx: TFrmBaSx
           TabOrder = 1
           State = cbUnchecked
           Transparent = False
+          OnClick = suichkAllClick
         end
         object FlatbtnCancle: TFlatButton
+          Tag = 103
           Left = 115
           Top = 5
           Width = 65
           Height = 25
           Caption = #20840#21462#28040
           TabOrder = 2
+          OnClick = FlatbtnCancleClick
         end
       end
       object dbgrdhSource: TDBGridEh
@@ -584,6 +648,7 @@ inherited FrmBaSx: TFrmBaSx
           item
             Checkboxes = True
             EditButtons = <>
+            FieldName = 'chk'
             Footers = <>
             Title.Alignment = taCenter
             Title.Caption = #36873#25321
@@ -643,8 +708,6 @@ inherited FrmBaSx: TFrmBaSx
       ParentColor = True
       Align = alClient
       TabOrder = 3
-      ExplicitLeft = 581
-      ExplicitTop = 83
       object advspltr1: TAdvSplitter
         Left = 1
         Top = 1
@@ -705,6 +768,7 @@ inherited FrmBaSx: TFrmBaSx
         Font.Style = []
         ParentFont = False
         TabOrder = 1
+        OnClick = FlatbtnAllRightClick
       end
       object FlatbtnLeft: TFlatButton
         Tag = 2
@@ -720,6 +784,7 @@ inherited FrmBaSx: TFrmBaSx
         Font.Style = []
         ParentFont = False
         TabOrder = 2
+        OnClick = FlatbtnAllRightClick
       end
       object FlatbtnAllLeft: TFlatButton
         Tag = 3
@@ -735,6 +800,7 @@ inherited FrmBaSx: TFrmBaSx
         Font.Style = []
         ParentFont = False
         TabOrder = 3
+        OnClick = FlatbtnAllRightClick
       end
     end
   end
@@ -759,15 +825,87 @@ inherited FrmBaSx: TFrmBaSx
     Top = 512
   end
   inherited DLCDS: TDlClientDataset
-    Left = 320
-    Top = 517
+    Left = 112
+    Top = 509
   end
   inherited al1: TActionList
     Left = 384
     Top = 517
   end
   inherited ds1: TDataSource
+    DataSet = clientdtSource
     Left = 352
     Top = 517
+  end
+  object dsDest: TDataSource
+    DataSet = clientdtDest
+    Left = 1016
+    Top = 480
+  end
+  object clientdtDest: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    Left = 1048
+    Top = 480
+    object clientdtDestchk: TBooleanField
+      FieldName = 'chk'
+    end
+    object clientdtDestCH0A00: TStringField
+      FieldName = 'CH0A00'
+    end
+    object clientdtDestCH0A02: TStringField
+      FieldName = 'CH0A02'
+    end
+    object clientdtDestCH0A03: TStringField
+      FieldName = 'CH0A03'
+    end
+    object clientdtDestCH0A23: TStringField
+      FieldName = 'CH0A23'
+    end
+    object clientdtDestCH0A27: TStringField
+      FieldName = 'CH0A27'
+    end
+    object clientdtDestCH0A33: TStringField
+      FieldName = 'CH0A33'
+    end
+    object clientdtDestCh0A01: TStringField
+      FieldName = 'Ch0A01'
+    end
+    object clientdtDestChYear: TStringField
+      FieldName = 'ChYear'
+    end
+  end
+  object clientdtSource: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    Left = 312
+    Top = 512
+    object clientdtSourcechk: TBooleanField
+      FieldName = 'chk'
+    end
+    object clientdtSourceCH0A00: TStringField
+      FieldName = 'CH0A00'
+    end
+    object clientdtSourceCH0A02: TStringField
+      FieldName = 'CH0A02'
+    end
+    object clientdtSourceCH0A03: TStringField
+      FieldName = 'CH0A03'
+    end
+    object clientdtSourceCH0A23: TStringField
+      FieldName = 'CH0A23'
+    end
+    object clientdtSourceCH0A27: TStringField
+      FieldName = 'CH0A27'
+    end
+    object clientdtSourceCH0A33: TStringField
+      FieldName = 'CH0A33'
+    end
+    object clientdtSourceCh0A01: TStringField
+      FieldName = 'Ch0A01'
+    end
+    object clientdtSourceChYear: TStringField
+      FieldName = 'ChYear'
+    end
   end
 end
