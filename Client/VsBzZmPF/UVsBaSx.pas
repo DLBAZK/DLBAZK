@@ -1,3 +1,11 @@
+{*******************************************************}
+{                                                       }
+{       病案筛选                                        }
+{                                                       }
+{       版权所有 (C) 2016 武汉雕龙软件医疗数据服务      }
+{                                                       }
+{*******************************************************}
+
 unit UVsBaSx;
 
 interface
@@ -92,6 +100,7 @@ type
     /// 出院科别代码
     /// </summary>
     FCh0A23:string;
+    constructor Create(Aower:TComponent);override;
     /// <summary>
     /// 移动数据
     /// </summary>
@@ -114,7 +123,7 @@ var
 
 implementation
   uses
-    UGFun,UGVar,UMidProxy;
+    UGFun,UGVar,UMidProxy,UVsMidClassList;
 
 {$R *.dfm}
 
@@ -240,6 +249,12 @@ begin
   finally
     EndWaitWindow;
   end;
+end;
+
+constructor TFrmBaSx.Create(Aower: TComponent);
+begin
+  inherited Create(Aower,EuVsBaSx,'');
+
 end;
 
 procedure TFrmBaSx.FlatbtnAllCancleClick(Sender: TObject);
@@ -442,7 +457,7 @@ begin
   inherited;
   if Trim(suiedtstart.Text) <> '' then
   begin
-    sday :=StrToInt(suiedtstart);
+    sday :=StrToInt(suiedtstart.Text);
     if Trim(suiedtEnd.Text) <>'' then
     begin
       eday := StrToInt(suiedtEnd.Text) ;

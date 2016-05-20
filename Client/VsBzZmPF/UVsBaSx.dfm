@@ -543,6 +543,7 @@ inherited FrmBaSx: TFrmBaSx
           Align = alRight
           Caption = #20445#23384
           ImageIndex = 10
+          Images = DM_Img.ilButton
           NotesFont.Charset = DEFAULT_CHARSET
           NotesFont.Color = clWindowText
           NotesFont.Height = -11
@@ -566,9 +567,6 @@ inherited FrmBaSx: TFrmBaSx
           Appearance.ColorMirrorCheckedTo = 16768988
           Appearance.ColorMirrorDisabled = 11974326
           Appearance.ColorMirrorDisabledTo = 15921906
-          ExplicitLeft = 281
-          ExplicitTop = 11
-          ExplicitHeight = 41
         end
       end
     end

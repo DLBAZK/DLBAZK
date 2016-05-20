@@ -17,7 +17,9 @@ uses
   UVsMidPersistent in '..\BaseClass\UVsMidPersistent.pas',
   UVsMidStand in '..\BaseClass\UVsMidStand.pas',
   UVsBaSyZk in 'UVsBaSyZk.pas',
-  UVsZkDetail in 'UVsZkDetail.pas';
+  UVsZkDetail in 'UVsZkDetail.pas',
+  UVsBaSx in 'UVsBaSx.pas',
+  UVsBaZmPF in 'UVsBaZmPF.pas';
 
 {$R *.res}
 /// <summary>
