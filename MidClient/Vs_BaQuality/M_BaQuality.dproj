@@ -1,11 +1,12 @@
-﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <ProjectGuid>{0d9a2f93-4dd0-4beb-a674-7f7140b329d4}</ProjectGuid>
+    <ProjectGuid>{40a76565-4300-495c-8462-fd477c1d322b}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
-    <DCC_DependencyCheckOutputName>BaZmPF.dll</DCC_DependencyCheckOutputName>
-    <MainSource>BaZmPF.dpr</MainSource>
+    <DCC_DependencyCheckOutputName>M_BaQuality.dll</DCC_DependencyCheckOutputName>
+    <MainSource>M_BaQuality.dpr</MainSource>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <Version>7.0</Version>
@@ -17,16 +18,16 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <Version>7.0</Version>
     <DCC_Define>DEBUG</DCC_Define>
-    <DCC_UnitSearchPath>E:\Batj2012\Source\Client\BaseForm;E:\Batj2012\Source\BatjInterface;E:\Batj2012\Source\Public;E:\Batj2012\Source\Dcu</DCC_UnitSearchPath>
-    <DCC_ResourcePath>E:\Batj2012\Source\Client\BaseForm;E:\Batj2012\Source\BatjInterface;E:\Batj2012\Source\Public;E:\Batj2012\Source\Dcu</DCC_ResourcePath>
-    <DCC_ObjPath>E:\Batj2012\Source\Client\BaseForm;E:\Batj2012\Source\BatjInterface;E:\Batj2012\Source\Public;E:\Batj2012\Source\Dcu</DCC_ObjPath>
-    <DCC_IncludePath>E:\Batj2012\Source\Client\BaseForm;E:\Batj2012\Source\BatjInterface;E:\Batj2012\Source\Public;E:\Batj2012\Source\Dcu</DCC_IncludePath>
+    <DCC_UnitSearchPath>E:\Batj2012\Source\MidClient\BaseClass;E:\Batj2012\Source\Dcu</DCC_UnitSearchPath>
+    <DCC_ResourcePath>E:\Batj2012\Source\MidClient\BaseClass;E:\Batj2012\Source\Dcu</DCC_ResourcePath>
+    <DCC_ObjPath>E:\Batj2012\Source\MidClient\BaseClass;E:\Batj2012\Source\Dcu</DCC_ObjPath>
+    <DCC_IncludePath>E:\Batj2012\Source\MidClient\BaseClass;E:\Batj2012\Source\Dcu</DCC_IncludePath>
   </PropertyGroup>
   <ProjectExtensions>
     <Borland.Personality>Delphi.Personality</Borland.Personality>
     <Borland.ProjectType />
     <BorlandProject>
-<BorlandProject xmlns=""> <Delphi.Personality>   <Parameters>
+<BorlandProject> <Delphi.Personality>   <Parameters>
       <Parameters Name="UseLauncher">False</Parameters>
       <Parameters Name="LoadAllSymbols">True</Parameters>
       <Parameters Name="LoadUnspecifiedSymbols">False</Parameters>
@@ -59,38 +60,18 @@
       <VersionInfoKeys Name="Comments"></VersionInfoKeys>
     </VersionInfoKeys>
     <Source>
-      <Source Name="MainSource">BaZmPF.dpr</Source>
+      <Source Name="MainSource">M_BaQuality.dpr</Source>
     </Source>
   </Delphi.Personality> </BorlandProject></BorlandProject>
   </ProjectExtensions>
   <Import Project="$(MSBuildBinPath)\Borland.Delphi.Targets" />
   <ItemGroup>
-    <DelphiCompile Include="BaZmPF.dpr">
+    <DelphiCompile Include="M_BaQuality.dpr">
       <MainSource>MainSource</MainSource>
     </DelphiCompile>
-    <DCCReference Include="..\..\Public\UGFun.pas" />
-    <DCCReference Include="..\..\Public\UGVar.pas" />
-    <DCCReference Include="..\BaseForm\UDM_Img.pas">
-      <Form>DM_Img</Form>
-      <DesignClass>TDataModule</DesignClass>
-    </DCCReference>
-    <DCCReference Include="..\BaseForm\UFrmBForm.pas">
-      <Form>BForm</Form>
-    </DCCReference>
-    <DCCReference Include="..\BaseForm\UFrmSuiBForm.pas">
-      <Form>FrmSuiBForm</Form>
-    </DCCReference>
-    <DCCReference Include="..\BaseForm\UFrmSuiBListForm.pas">
-      <Form>FrmSuiBListForm</Form>
-    </DCCReference>
-    <DCCReference Include="..\BaseForm\UFrmSuiDBForm.pas">
-      <Form>FrmSuiDBForm</Form>
-    </DCCReference>
-    <DCCReference Include="..\BaseForm\UFrmSuiDBListForm.pas">
-      <Form>FrmSuiDBListForm</Form>
-    </DCCReference>
-    <DCCReference Include="UVsBaSx.pas">
-      <Form>FrmBaSx</Form>
-    </DCCReference>
+    <DCCReference Include="..\BaseClass\UVsMidPersistent.pas" />
+    <DCCReference Include="..\BaseClass\UVsMidStand.pas" />
+    <DCCReference Include="UVsBaSyZk.pas" />
+    <DCCReference Include="UVsZkDetail.pas" />
   </ItemGroup>
 </Project>
