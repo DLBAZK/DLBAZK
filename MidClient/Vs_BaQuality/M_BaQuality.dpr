@@ -19,7 +19,8 @@ uses
   UVsBaSyZk in 'UVsBaSyZk.pas',
   UVsZkDetail in 'UVsZkDetail.pas',
   UVsBaSx in 'UVsBaSx.pas',
-  UVsBaZmPF in 'UVsBaZmPF.pas';
+  UVsBaZmPF in 'UVsBaZmPF.pas',
+  UVsBaZmPj in 'UVsBaZmPj.pas';
 
 {$R *.res}
 /// <summary>

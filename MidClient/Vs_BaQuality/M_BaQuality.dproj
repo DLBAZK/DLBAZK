@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
-    <DCC_DependencyCheckOutputName>M_BaQuality.dll</DCC_DependencyCheckOutputName>
+    <DCC_DependencyCheckOutputName>C:\Batj2005\AppServer\M_BaQuality.dll</DCC_DependencyCheckOutputName>
     <MainSource>M_BaQuality.dpr</MainSource>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -25,6 +25,7 @@
     <DCC_DcuOutput>E:\Batj2012\Source\Dcu</DCC_DcuOutput>
     <DCC_ObjOutput>E:\Batj2012\Source\Dcu</DCC_ObjOutput>
     <DCC_HppOutput>E:\Batj2012\Source\Dcu</DCC_HppOutput>
+    <DCC_ExeOutput>C:\Batj2005\AppServer</DCC_ExeOutput>
   </PropertyGroup>
   <ProjectExtensions>
     <Borland.Personality>Delphi.Personality</Borland.Personality>
@@ -42,6 +43,7 @@
     <DCCReference Include="UVsBaSx.pas" />
     <DCCReference Include="UVsBaSyZk.pas" />
     <DCCReference Include="UVsBaZmPF.pas" />
+    <DCCReference Include="UVsBaZmPj.pas" />
     <DCCReference Include="UVsZkDetail.pas" />
   </ItemGroup>
 </Project>

@@ -220,7 +220,7 @@ Type
     EuVsBaSy=402,            //病案首页质控
     EuVsZkDetail=403,        //病案首页质控详细记录
     EuVsBaSx=404,            //病案筛选
-
+    EuVsBaZmPj=406,          //病案终末评价
     EuVSGenPym=999         //生成拼音码功能[此功能不发布]
     );
 

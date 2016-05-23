@@ -20,12 +20,7 @@ uses
 
 type
   TFrmBaSy = class(TFrmSuiDBForm)
-    advDtpks: TAdvDateTimePicker;
     AdvPanel2: TAdvPanel;
-    EllipsLabel1: TEllipsLabel;
-    advDtpjs: TAdvDateTimePicker;
-    EllipsLabel2: TEllipsLabel;
-    AdvbtnOK: TAdvGlowButton;
     suiGroupBox1: TsuiGroupBox;
     dbgrdhBarecord: TDBGridEh;
     suiGroupBox2: TsuiGroupBox;
@@ -35,9 +30,17 @@ type
     DLCDSHistory: TDlClientDataset;
     dsLocal: TDataSource;
     dsHistory: TDataSource;
+    AdvPanel3: TAdvPanel;
+    EllipsLabel1: TEllipsLabel;
+    advDtpks: TAdvDateTimePicker;
+    EllipsLabel2: TEllipsLabel;
+    advDtpjs: TAdvDateTimePicker;
+    AdvbtnOK: TAdvGlowButton;
+    Timer1: TTimer;
     procedure AdvbtnOKClick(Sender: TObject);
     procedure DLCDSLocalAfterScroll(DataSet: TDataSet);
     procedure dbgrdhBaHistoryDblClick(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
   private
     { Private declarations }
     /// <summary>
@@ -65,7 +68,6 @@ procedure TFrmBaSy.AdvbtnOKClick(Sender: TObject);
 var
   kssj,jssj:string;
   Sql:string;
-
 begin
   inherited;
   kssj := DateToStr(self.advDtpks.Date);
@@ -96,15 +98,15 @@ begin
   end;
 end;
 
+
 constructor TFrmBaSy.Create(Aowner: TComponent);
 begin
-  inherited Create(Aowner,EuVsBaSy,'');
+  inherited Create(Aowner,EuVsBaSy,'select getdate()');
   DLCDSLocal.MidClassName := EuVsBaSy;
   DLCDSHistory.MidClassName := EuVsBaSy;
   Self.advDtpjs.Date :=Now;
   Self.advDtpks.Date := Now -7;
-  //获取所有的病案历史记录
-  GetBazkHistory;
+
 end;
 
 /// <summary>
@@ -116,9 +118,12 @@ var
   frmZkdetal:TFrmZkDetail;
 begin
   inherited;
+  if not DLCDSHistory.Active then Exit;
+  if DLCDSHistory.IsEmpty then Exit;
+
   strBah :=DLCDSHistory.FieldByName('CH0A01').AsString;
   frmZkdetal := TFrmZkDetail.Create(nil);
-  FrmZkDetail.StrBah := strBah;
+  frmZkdetal.StrBah := strBah;
   frmZkdetal.ShowModal;
   if Assigned(FrmZkDetail) then
      frmZkdetal.Free;
@@ -134,6 +139,8 @@ var
   Strbah:string;    //病案号
 begin
   inherited;
+  if not DLCDSLocal.Active then Exit;
+  
   if DLCDSLocal.RecordCount <1 then Exit;
   Strbah := DLCDSLocal.FieldByName('CH0A01').AsString;
   Afilter :=  Format('CH0A01=%s',[QuotedStr(Strbah)]);
@@ -147,7 +154,6 @@ end;
 procedure TFrmBaSy.GetBazkHistory;
 var
   sql:string;
-
 begin
   sql :='select CH0A01,PFSJ,100-SUM(score) Score, ROW_NUMBER() OVER(PARTITION BY '
        +'CH0A01 ORDER BY PFSJ) times  from VsBAsyzk group by CH0A01,PFSJ';
@@ -158,6 +164,12 @@ begin
     DLCDSHistory.Filter := ' 1<>1';
     DLCDSHistory.Filtered := False;
   end;
+end;
+
+procedure TFrmBaSy.Timer1Timer(Sender: TObject);
+begin
+  inherited;
+  GetBazkHistory;
 end;
 
 initialization

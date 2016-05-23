@@ -33,7 +33,8 @@ constructor TFrmZkDetail.Create(Aowner: TComponent);
 var
   selectsql:string;
 begin
-
+  if StrBah='' then Exit;
+  
   selectsql :=Format('select * from VsBAsyzk where CH0A01 =%s',[QuotedStr(StrBah)]);
   inherited Create(Aowner,EuVsZkDetail,selectsql);
 
