@@ -65,5 +65,8 @@
     <DCCReference Include="UFrmZkDetail.pas">
       <Form>FrmZkDetail</Form>
     </DCCReference>
+    <DCCReference Include="UVsBaSx.pas">
+      <Form>FrmBaSx</Form>
+    </DCCReference>
   </ItemGroup>
 </Project>

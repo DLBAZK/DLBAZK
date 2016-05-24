@@ -16,7 +16,7 @@ uses
   AdvAppStyler, AdvToolBar, AdvToolBarStylers, AdvOfficeStatusBar,
   AdvOfficeStatusBarStylers, ExtCtrls, AdvGlowButton, StdCtrls, EllipsLabel,
   DBGridEhGrouping, GridsEh, DBGridEh, SUIImagePanel, SUIGroupBox, DB, DBClient,
-  UDlClientDataset,UVsMidClassList, UFrmSuiBForm, ActnList;
+  UDlClientDataset,UVsMidClassList, UFrmSuiBForm, ActnList, AdvSplitter;
 
 type
   TFrmBaSy = class(TFrmSuiDBForm)
@@ -37,6 +37,7 @@ type
     advDtpjs: TAdvDateTimePicker;
     AdvbtnOK: TAdvGlowButton;
     Timer1: TTimer;
+    AdvSplitter1: TAdvSplitter;
     procedure AdvbtnOKClick(Sender: TObject);
     procedure DLCDSLocalAfterScroll(DataSet: TDataSet);
     procedure dbgrdhBaHistoryDblClick(Sender: TObject);
@@ -93,6 +94,14 @@ begin
   StartWaitWindow('正在分析病案......');
   try
     DLCDSLocal.Mid_Open(Sql);
+    if DLCDSLocal.Active then
+    begin
+      if DLCDSLocal.IsEmpty then
+      begin
+        EndWaitWindow;
+        ShowMsgSure('结果为空!');
+      end;
+    end;
   finally
     EndWaitWindow; 
   end;
@@ -169,6 +178,7 @@ end;
 procedure TFrmBaSy.Timer1Timer(Sender: TObject);
 begin
   inherited;
+  Timer1.Enabled :=False;
   GetBazkHistory;
 end;
 

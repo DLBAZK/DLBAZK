@@ -34,8 +34,8 @@ var
   selectsql:string;
 begin
   if StrBah='' then Exit;
-  
-  selectsql :=Format('select * from VsBAsyzk where CH0A01 =%s',[QuotedStr(StrBah)]);
+
+  selectsql :=Format('select * from VsBAsyzk A left join Vssjpf B on A.Subject = B.dm where A.CH0A01 =%s',[QuotedStr(StrBah)]);
   inherited Create(Aowner,EuVsZkDetail,selectsql);
 
 end;

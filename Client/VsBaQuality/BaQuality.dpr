@@ -23,7 +23,8 @@ uses
   UFrmBaSy in 'UFrmBaSy.pas' {FrmBaSy},
   UFrmZkDetail in 'UFrmZkDetail.pas' {FrmZkDetail},
   UGFun in '..\..\Public\UGFun.pas',
-  UGVar in '..\..\Public\UGVar.pas';
+  UGVar in '..\..\Public\UGVar.pas',
+  UVsBaSx in 'UVsBaSx.pas' {FrmBaSx};
 
 {$R *.res}
 Function DllObjFactory(MainInfo:TMainInfo;FormClass:String):TFormClass;

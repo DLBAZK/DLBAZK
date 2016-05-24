@@ -1,5 +1,7 @@
 inherited FrmZkDetail: TFrmZkDetail
   Caption = #30149#26696#36136#25511#21382#21490#35760#24405
+  ExplicitWidth = 701
+  ExplicitHeight = 433
   PixelsPerInch = 96
   TextHeight = 13
   inherited advtlbrpgr1: TAdvToolBarPager
@@ -29,6 +31,12 @@ inherited FrmZkDetail: TFrmZkDetail
   inherited AdvPanel1: TAdvPanel
     FullHeight = 200
     inherited dbgrdh_DLCDS: TDBGridEh
+      Font.Charset = ANSI_CHARSET
+      Font.Height = -12
+      Font.Name = #24494#36719#38597#40657
+      Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+      OptionsEh = [dghFixed3D, dghHighlightFocus, dghClearSelection, dghAutoSortMarking, dghEnterAsTab, dghRowHighlight, dghDialogFind, dghShowRecNo, dghColumnResize, dghColumnMove]
+      ParentFont = False
       Columns = <
         item
           EditButtons = <>
@@ -49,7 +57,7 @@ inherited FrmZkDetail: TFrmZkDetail
         end
         item
           EditButtons = <>
-          FieldName = 'Subject'
+          FieldName = 'dmmc'
           Footers = <>
           Title.Caption = #25187#20998#39033
           Title.Font.Charset = ANSI_CHARSET

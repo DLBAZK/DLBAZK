@@ -56,10 +56,25 @@ inherited FrmBaSy: TFrmBaSy
       StatusBar.Font.Name = 'Tahoma'
       StatusBar.Font.Style = []
       FullHeight = 200
+      object AdvSplitter1: TAdvSplitter
+        Left = 454
+        Top = 1
+        Height = 501
+        Appearance.BorderColor = clNone
+        Appearance.BorderColorHot = clNone
+        Appearance.Color = clWhite
+        Appearance.ColorTo = clSilver
+        Appearance.ColorHot = clWhite
+        Appearance.ColorHotTo = clGray
+        GripStyle = sgDots
+        ExplicitLeft = 496
+        ExplicitTop = 128
+        ExplicitHeight = 100
+      end
       object suiGroupBox1: TsuiGroupBox
         Left = 1
         Top = 1
-        Width = 288
+        Width = 453
         Height = 501
         UIStyle = DeepBlue
         Align = alLeft
@@ -76,30 +91,39 @@ inherited FrmBaSy: TFrmBaSy
         object dbgrdhBarecord: TDBGridEh
           Left = 3
           Top = 16
-          Width = 282
+          Width = 447
           Height = 482
           Align = alClient
           DataGrouping.GroupLevels = <>
           DataSource = dsLocal
-          Flat = False
+          Flat = True
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
           FooterColor = clWindow
           FooterFont.Charset = DEFAULT_CHARSET
           FooterFont.Color = clBlack
           FooterFont.Height = -11
           FooterFont.Name = 'Tahoma'
           FooterFont.Style = []
+          Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit]
+          OptionsEh = [dghFixed3D, dghHighlightFocus, dghClearSelection, dghDialogFind, dghShowRecNo, dghColumnResize, dghColumnMove, dghExtendVertLines]
+          ParentFont = False
           RowDetailPanel.Color = clBtnFace
           TabOrder = 0
-          TitleFont.Charset = DEFAULT_CHARSET
+          TitleFont.Charset = ANSI_CHARSET
           TitleFont.Color = clBlack
-          TitleFont.Height = -11
-          TitleFont.Name = 'Tahoma'
+          TitleFont.Height = -12
+          TitleFont.Name = #24494#36719#38597#40657
           TitleFont.Style = []
           Columns = <
             item
               EditButtons = <>
               FieldName = 'CH0A01'
               Footers = <>
+              ReadOnly = True
               Title.Caption = #30149#26696#21495
               Width = 100
             end
@@ -107,13 +131,14 @@ inherited FrmBaSy: TFrmBaSy
               EditButtons = <>
               FieldName = 'CH0A02'
               Footers = <>
+              ReadOnly = True
               Title.Caption = #22995#21517
               Width = 90
             end
             item
               EditButtons = <>
-              FieldName = 'Score'
               Footers = <>
+              ReadOnly = True
               Title.Caption = #20998#20540
             end>
           object RowDetailData: TRowDetailPanelControlEh
@@ -121,9 +146,9 @@ inherited FrmBaSy: TFrmBaSy
         end
       end
       object suiGroupBox2: TsuiGroupBox
-        Left = 289
+        Left = 457
         Top = 1
-        Width = 677
+        Width = 509
         Height = 501
         UIStyle = DeepBlue
         Align = alClient
@@ -137,27 +162,37 @@ inherited FrmBaSy: TFrmBaSy
         ParentFont = False
         TabOrder = 1
         BorderColor = clBlack
+        ExplicitLeft = 664
+        ExplicitWidth = 302
         object dbgrdhBaHistory: TDBGridEh
           Left = 3
           Top = 16
-          Width = 671
+          Width = 503
           Height = 482
           Align = alClient
           DataGrouping.GroupLevels = <>
           DataSource = dsHistory
-          Flat = False
+          Flat = True
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -11
+          Font.Name = 'Tahoma'
+          Font.Style = []
           FooterColor = clWindow
           FooterFont.Charset = DEFAULT_CHARSET
           FooterFont.Color = clBlack
           FooterFont.Height = -11
           FooterFont.Name = 'Tahoma'
           FooterFont.Style = []
+          Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit]
+          OptionsEh = [dghFixed3D, dghHighlightFocus, dghClearSelection, dghDialogFind, dghShowRecNo, dghColumnResize, dghColumnMove, dghExtendVertLines]
+          ParentFont = False
           RowDetailPanel.Color = clBtnFace
           TabOrder = 0
-          TitleFont.Charset = DEFAULT_CHARSET
+          TitleFont.Charset = ANSI_CHARSET
           TitleFont.Color = clBlack
-          TitleFont.Height = -11
-          TitleFont.Name = 'Tahoma'
+          TitleFont.Height = -12
+          TitleFont.Name = #24494#36719#38597#40657
           TitleFont.Style = []
           OnDblClick = dbgrdhBaHistoryDblClick
           Columns = <
@@ -165,6 +200,7 @@ inherited FrmBaSy: TFrmBaSy
               EditButtons = <>
               FieldName = 'times'
               Footers = <>
+              ReadOnly = True
               Title.Caption = #35780#20998#27425#25968
               Width = 100
             end
@@ -172,6 +208,7 @@ inherited FrmBaSy: TFrmBaSy
               EditButtons = <>
               FieldName = 'Score'
               Footers = <>
+              ReadOnly = True
               Title.Caption = #20998#20540
               Width = 90
             end
@@ -179,6 +216,7 @@ inherited FrmBaSy: TFrmBaSy
               EditButtons = <>
               FieldName = 'PFSJ'
               Footers = <>
+              ReadOnly = True
               Title.Caption = #35780#20998#26102#38388
             end>
           object RowDetailData: TRowDetailPanelControlEh
@@ -265,14 +303,8 @@ inherited FrmBaSy: TFrmBaSy
         Left = 14
         Top = 24
         Width = 48
-        Height = 17
+        Height = 13
         Caption = #20986#38498#26085#26399
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = #24494#36719#38597#40657
-        Font.Style = []
-        ParentFont = False
         EllipsType = etNone
         Version = '1.0.0.0'
       end
@@ -280,14 +312,8 @@ inherited FrmBaSy: TFrmBaSy
         Left = 199
         Top = 24
         Width = 12
-        Height = 17
+        Height = 13
         Caption = #33267
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -12
-        Font.Name = #24494#36719#38597#40657
-        Font.Style = []
-        ParentFont = False
         EllipsType = etNone
         Version = '1.0.0.0'
       end
