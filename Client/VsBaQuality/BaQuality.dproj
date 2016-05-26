@@ -59,6 +59,9 @@
     <DCCReference Include="..\BaseForm\UFrmSuiDBListForm.pas">
       <Form>FrmSuiDBListForm</Form>
     </DCCReference>
+    <DCCReference Include="UFrmBaPJ.pas">
+      <Form>FrmBaPJ</Form>
+    </DCCReference>
     <DCCReference Include="UFrmBaSy.pas">
       <Form>FrmBaSy</Form>
     </DCCReference>

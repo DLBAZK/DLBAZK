@@ -293,6 +293,48 @@ inherited FrmBaSx: TFrmBaSx
           ReturnIsTab = False
           Version = '1.3.4.1'
         end
+        object AdvbtnClose: TAdvGlowButton
+          Left = 661
+          Top = 52
+          Width = 81
+          Height = 32
+          Action = acClose
+          ImageIndex = 1
+          NotesFont.Charset = DEFAULT_CHARSET
+          NotesFont.Color = clWindowText
+          NotesFont.Height = -11
+          NotesFont.Name = 'Tahoma'
+          NotesFont.Style = []
+          TabOrder = 11
+          Appearance.BorderColor = 12631218
+          Appearance.BorderColorHot = 10079963
+          Appearance.BorderColorDown = 4548219
+          Appearance.Color = 14671574
+          Appearance.ColorTo = 15000283
+          Appearance.ColorChecked = 7915518
+          Appearance.ColorCheckedTo = 11918331
+          Appearance.ColorDisabled = 15921906
+          Appearance.ColorDisabledTo = 15921906
+          Appearance.ColorDown = 7778289
+          Appearance.ColorDownTo = 4296947
+          Appearance.ColorHot = 15465983
+          Appearance.ColorHotTo = 11332863
+          Appearance.ColorMirror = 14144974
+          Appearance.ColorMirrorTo = 15197664
+          Appearance.ColorMirrorHot = 5888767
+          Appearance.ColorMirrorHotTo = 10807807
+          Appearance.ColorMirrorDown = 946929
+          Appearance.ColorMirrorDownTo = 5021693
+          Appearance.ColorMirrorChecked = 10480637
+          Appearance.ColorMirrorCheckedTo = 5682430
+          Appearance.ColorMirrorDisabled = 11974326
+          Appearance.ColorMirrorDisabledTo = 15921906
+          Appearance.GradientHot = ggVertical
+          Appearance.GradientMirrorHot = ggVertical
+          Appearance.GradientDown = ggVertical
+          Appearance.GradientMirrorDown = ggVertical
+          Appearance.GradientChecked = ggVertical
+        end
       end
     end
     object FlatPanel1: TFlatPanel
@@ -309,8 +351,6 @@ inherited FrmBaSx: TFrmBaSx
       ParentColor = True
       Align = alClient
       TabOrder = 1
-      ExplicitLeft = 664
-      ExplicitWidth = 400
       object FlatPanel2: TFlatPanel
         Left = 1
         Top = 1
@@ -319,7 +359,6 @@ inherited FrmBaSx: TFrmBaSx
         ParentColor = True
         Align = alTop
         TabOrder = 0
-        ExplicitWidth = 587
         object suichkCheckAll: TsuiCheckBox
           Tag = 201
           Left = 9
@@ -578,7 +617,6 @@ inherited FrmBaSx: TFrmBaSx
         ParentColor = True
         Align = alBottom
         TabOrder = 2
-        ExplicitWidth = 587
         object AdvbtnSave: TAdvGlowButton
           Left = 387
           Top = 1
@@ -612,7 +650,6 @@ inherited FrmBaSx: TFrmBaSx
           Appearance.ColorMirrorCheckedTo = 16768988
           Appearance.ColorMirrorDisabled = 11974326
           Appearance.ColorMirrorDisabledTo = 15921906
-          ExplicitLeft = 486
         end
       end
     end
@@ -638,7 +675,6 @@ inherited FrmBaSx: TFrmBaSx
         ParentColor = True
         Align = alTop
         TabOrder = 0
-        ExplicitWidth = 575
         object suichkAll: TsuiCheckBox
           Tag = 101
           Left = 9
@@ -776,8 +812,6 @@ inherited FrmBaSx: TFrmBaSx
       ParentColor = True
       Align = alLeft
       TabOrder = 3
-      ExplicitLeft = 685
-      ExplicitTop = 83
       object FlatbtnAllRight: TFlatButton
         Left = 24
         Top = 122

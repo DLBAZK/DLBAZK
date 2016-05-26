@@ -81,6 +81,7 @@ type
     FlatPanel8: TFlatPanel;
     AdvbtnSave: TAdvGlowButton;
     AdvSplitter1: TAdvSplitter;
+    AdvbtnClose: TAdvGlowButton;
     procedure suiedtstartKeyPress(Sender: TObject; var Key: Char);
     procedure FlatbtnAllRightClick(Sender: TObject);
     procedure AdvedtCH0A23KeyDown(Sender: TObject; var Key: Word;
@@ -113,6 +114,12 @@ type
     /// <param name="chkState">选择状态</param>
     /// <param name="bz">true ： 全部；false ：部分</param>
     procedure SetDataCheck(dt:TClientDataSet;const chkState:Boolean;const bz:Boolean);
+    /// <summary>
+    ///判断病案是否已保存
+    /// </summary>
+    /// <param name="BAH">病案号</param>
+    /// <returns></returns>
+    function IsExist(BAH:string):Boolean;
   public
     { Public declarations }
   end;
@@ -127,11 +134,51 @@ implementation
 {$R *.dfm}
 
 procedure TFrmBaSx.AdvbtnSaveClick(Sender: TObject);
+var
+  sql:string;
+  CH0A01:string; //病案号
+  CH0A00:string; //住院号
+  CH0A02:string; //姓名
+  CH0A03:string; //性别
+  
 begin
   inherited;
   StartWaitWindow('正在保存...');
   try
-    DBGridEhSave(dbgrdhDest);
+    //DBGridEhSave(dbgrdhDest);
+    if clientdtDest.Active then
+    begin
+      if not clientdtDest.IsEmpty then
+      begin
+        with clientdtDest do
+        begin
+          //保存数据到数据库
+          First;
+          while not Eof do
+          begin
+            CH0A00 := FieldByName('CH0A00').AsString;
+            CH0A01 := FieldByName('CH0A01').AsString;
+            CH0A02 := FieldByName('CH0A02').AsString;
+            CH0A03 := FieldByName('CH0A03').AsString;
+            if not IsExist(CH0A00) then            
+            begin
+              sql := Format('insert into VsPJBA0A values(%s,%s,%s,%s)',[Quotedstr(CH0A00),Quotedstr(CH0A01),Quotedstr(CH0A02),Quotedstr(CH0A03)]);
+              Application.ProcessMessages;
+              try
+                TMidProxy.SqlExecute(sql);
+              except
+                on ex:Exception do
+                begin
+                  
+                end;
+              end;
+            end;
+            
+            Next;
+          end;
+        end;
+      end;
+    end;
   finally
     EndWaitWindow;
   end;
@@ -233,26 +280,24 @@ begin
     fsql := ssql+wheresql;
     TMidProxy.SqlOpen(fsql,clientdttmp);
     if clientdttmp.Active then
-    begin
-      if clientdttmp.IsEmpty then
-      begin
-       // clientdtSource.Delete;
-        clientdtSource.EmptyDataSet;
-        Exit;
-      end;
-      //复制数据
+    begin     
+      clientdtSource.EmptyDataSet;
+       //复制数据
       with clientdttmp do
       begin
-        Open;
-        DisableControls;
-        First;
-        while not eof do
-        begin
-
-          MoveData(clientdttmp,clientdtSource);
+       if not IsEmpty then
+       begin
+          Open;
+          DisableControls;
           First;
-        end;
-        EnableControls;
+          while not eof do
+          begin
+
+            MoveData(clientdttmp,clientdtSource);
+            First;
+          end;
+          EnableControls;
+       end;
       end;
       if not clientdtSource.IsEmpty then clientdtSource.First;
       
@@ -374,6 +419,27 @@ begin
   suichkAll.Checked :=False;
   suichkinverse.Checked := False;
   SetDataCheck(clientdtSource,False,True);
+end;
+
+function TFrmBaSx.IsExist(BAH: string): Boolean;
+var
+ Sql:string;
+ clientTmp:TClientDataSet;
+begin
+  Result :=False;
+  if BAH = '' then Exit;
+  clientTmp := TClientDataSet.Create(nil);
+  Sql := Format('select count(*) as result from VSPJBA0A where CH0A00=%s',[BAH]);
+  try
+    TMidProxy.SqlOpen(Sql,clientTmp);
+    if not clientTmp.IsEmpty then
+    begin
+      if clientTmp.FieldByName('result').AsInteger >0 then
+         Result :=True;
+    end;
+  finally
+    clientTmp.Free;
+  end;
 end;
 
 procedure TFrmBaSx.MoveData(CdsS, CdsD: TClientDataSet);

@@ -162,8 +162,6 @@ inherited FrmBaSy: TFrmBaSy
         ParentFont = False
         TabOrder = 1
         BorderColor = clBlack
-        ExplicitLeft = 664
-        ExplicitWidth = 302
         object dbgrdhBaHistory: TDBGridEh
           Left = 3
           Top = 16
@@ -408,6 +406,48 @@ inherited FrmBaSy: TFrmBaSy
         Appearance.ColorMirrorDisabled = 11974326
         Appearance.ColorMirrorDisabledTo = 15921906
         DropDownPosition = dpBottom
+      end
+      object AdvbtnClose: TAdvGlowButton
+        Left = 472
+        Top = 13
+        Width = 81
+        Height = 32
+        Action = acClose
+        ImageIndex = 1
+        NotesFont.Charset = DEFAULT_CHARSET
+        NotesFont.Color = clWindowText
+        NotesFont.Height = -11
+        NotesFont.Name = 'Tahoma'
+        NotesFont.Style = []
+        TabOrder = 3
+        Appearance.BorderColor = 12631218
+        Appearance.BorderColorHot = 10079963
+        Appearance.BorderColorDown = 4548219
+        Appearance.Color = 14671574
+        Appearance.ColorTo = 15000283
+        Appearance.ColorChecked = 7915518
+        Appearance.ColorCheckedTo = 11918331
+        Appearance.ColorDisabled = 15921906
+        Appearance.ColorDisabledTo = 15921906
+        Appearance.ColorDown = 7778289
+        Appearance.ColorDownTo = 4296947
+        Appearance.ColorHot = 15465983
+        Appearance.ColorHotTo = 11332863
+        Appearance.ColorMirror = 14144974
+        Appearance.ColorMirrorTo = 15197664
+        Appearance.ColorMirrorHot = 5888767
+        Appearance.ColorMirrorHotTo = 10807807
+        Appearance.ColorMirrorDown = 946929
+        Appearance.ColorMirrorDownTo = 5021693
+        Appearance.ColorMirrorChecked = 10480637
+        Appearance.ColorMirrorCheckedTo = 5682430
+        Appearance.ColorMirrorDisabled = 11974326
+        Appearance.ColorMirrorDisabledTo = 15921906
+        Appearance.GradientHot = ggVertical
+        Appearance.GradientMirrorHot = ggVertical
+        Appearance.GradientDown = ggVertical
+        Appearance.GradientMirrorDown = ggVertical
+        Appearance.GradientChecked = ggVertical
       end
     end
   end

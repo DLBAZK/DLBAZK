@@ -41,11 +41,6 @@ inherited FrmZkDetail: TFrmZkDetail
         item
           EditButtons = <>
           FieldName = 'CH0A01'
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -12
-          Font.Name = #24494#36719#38597#40657
-          Font.Style = []
           Footers = <>
           Title.Caption = #30149#26696#21495
           Title.Font.Charset = ANSI_CHARSET

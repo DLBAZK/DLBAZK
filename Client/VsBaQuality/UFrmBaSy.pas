@@ -38,6 +38,7 @@ type
     AdvbtnOK: TAdvGlowButton;
     Timer1: TTimer;
     AdvSplitter1: TAdvSplitter;
+    AdvbtnClose: TAdvGlowButton;
     procedure AdvbtnOKClick(Sender: TObject);
     procedure DLCDSLocalAfterScroll(DataSet: TDataSet);
     procedure dbgrdhBaHistoryDblClick(Sender: TObject);

@@ -24,7 +24,8 @@ uses
   UFrmZkDetail in 'UFrmZkDetail.pas' {FrmZkDetail},
   UGFun in '..\..\Public\UGFun.pas',
   UGVar in '..\..\Public\UGVar.pas',
-  UVsBaSx in 'UVsBaSx.pas' {FrmBaSx};
+  UVsBaSx in 'UVsBaSx.pas' {FrmBaSx},
+  UFrmBaPJ in 'UFrmBaPJ.pas' {FrmBaPJ};
 
 {$R *.res}
 Function DllObjFactory(MainInfo:TMainInfo;FormClass:String):TFormClass;
