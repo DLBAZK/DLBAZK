@@ -120,11 +120,11 @@ else
 begin
 	delete from VsMidOper where MidOperCode = '406'
 	insert into VsMidOper(MidOperCode,MidOperName,MidOperLib,MidOperEnu,MidOperDes) 
-     VALUES  (406,'TVsBaZmPj','200025','EuVsBaZmPj','病案终末评价中间层')	
+     VALUES  (407,'TVsBaZmPj','200025','EuVsBaZmPj','病案终末评价中间层')	
 end
 else
   insert into VsMidOper(MidOperCode,MidOperName,MidOperLib,MidOperEnu,MidOperDes) 
-     VALUES  (406,'TVsBaZmPj','200025','EuVsBaZmPj','病案终末评价中间层')	    
+     VALUES  (407,'TVsBaZmPj','200025','EuVsBaZmPj','病案终末评价中间层')	    
      
 select * from VsMidOper where MidOperLib=200025
      
