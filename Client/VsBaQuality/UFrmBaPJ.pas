@@ -1,3 +1,11 @@
+{*******************************************************}
+{                                                       }
+{       病案终末评价                                    }
+{                                                       }
+{       版权所有 (C) 2016 武汉雕龙软件医疗数据服务      }
+{                                                       }
+{*******************************************************}
+
 unit UFrmBaPJ;
 
 interface
@@ -32,11 +40,18 @@ type
       Shift: TShiftState);
     procedure dbgrdhBaListDblClick(Sender: TObject);
     procedure AdvbtnacSaveClick(Sender: TObject);
+    procedure dbgrdhBaListGetCellParams(Sender: TObject; Column: TColumnEh;
+      AFont: TFont; var Background: TColor; State: TGridDrawState);
+    procedure dbgrdhPJDetailGetFooterParams(Sender: TObject; DataCol,
+      Row: Integer; Column: TColumnEh; AFont: TFont; var Background: TColor;
+      var Alignment: TAlignment; State: TGridDrawState; var Text: string);
   private
     { Private declarations }
-    constructor Create(Aower:TComponent);override;
+    CH0A00:string;    //住院号
+
   public
     { Public declarations }
+     constructor Create(Aower:TComponent);override;
   end;
 
 var
@@ -51,14 +66,14 @@ implementation
 
 procedure TFrmBaPJ.ActLocateExecute(Sender: TObject);
 var
- CH0A00:string; //住院号
+ StrCH0A00:string; //住院号
 begin
   inherited;
   if suiedtZYH.Text = '' then Exit;
   if not DLCDS.Active then Exit;
   if DLCDS.IsEmpty then Exit;
-  CH0A00 := suiedtZYH.Text;
-  if not DLCDS.Locate('CH0A00',CH0A00,[loCaseInsensitive]) then
+  StrCH0A00 := suiedtZYH.Text;
+  if not DLCDS.Locate('CH0A00',StrCH0A00,[loCaseInsensitive]) then
   begin
     ShowMsgSure('这条记录不存在!');
   end;
@@ -67,7 +82,7 @@ end;
 
 procedure TFrmBaPJ.AdvbtnacSaveClick(Sender: TObject);
 var
-  CH0A00:string;    //住院号
+
   sql:string;
   FCode,SCode,TCode,Code:string;
   Score:Double;
@@ -92,7 +107,7 @@ begin
     TMidProxy.SqlExecute(sql);
     with clientdtPJDetail do
     begin
-      DisableConstraints;
+      DisableControls;
       First;
       while not Eof do
       begin
@@ -100,7 +115,7 @@ begin
         SCode := FieldByName('Scode').AsString;//次项目编号
         TCode := FieldByName('Tcode').AsString;//细项目编号
         Score := FieldByName('Score').AsFloat; //分数
-        Remark := FieldByName('Remark').AsString;      //其他问题
+        Remark := DelStrTabDot(FieldByName('Remark').AsString);      //其他问题
         if TCode = '' then
         begin
           if SCode = '' then
@@ -116,6 +131,7 @@ begin
         TMidProxy.SqlExecute(sql);
         Next;
       end;
+      First;
       EnableControls;
     end;
   finally
@@ -143,10 +159,10 @@ end;
 
 procedure TFrmBaPJ.dbgrdhBaListDblClick(Sender: TObject);
 const
-  execSql ='exec BAzmpj ^%s^' ;
+  execSql ='exec PBAzmpj ^%s^' ;
 var
  sql:string;
- CH0A00:string;//住院号
+
 begin
   inherited;
   try
@@ -160,6 +176,39 @@ begin
   finally
 
   end;
+end;
+
+procedure TFrmBaPJ.dbgrdhBaListGetCellParams(Sender: TObject; Column: TColumnEh;
+  AFont: TFont; var Background: TColor; State: TGridDrawState);
+begin
+  inherited;
+  if dbgrdhBaList.SumList.RecNo mod 2 = 0 then
+    Background := clSkyBlue
+  else
+    Background :=clYellow;
+end;
+
+procedure TFrmBaPJ.dbgrdhPJDetailGetFooterParams(Sender: TObject; DataCol,
+  Row: Integer; Column: TColumnEh; AFont: TFont; var Background: TColor;
+  var Alignment: TAlignment; State: TGridDrawState; var Text: string);
+var
+ score:Double;
+begin
+  inherited;
+  Exit;
+  if Text = '' then Exit;
+  if not Assigned(Column.Field) then   Exit;
+
+  if UpperCase(Column.Field.FieldName) <>'SCORE' then Exit;
+
+  try
+    score := StrToFloat(Text);
+    if score - 100 < 0 then
+      dbgrdhPJDetail.FooterColor := clRed;
+  finally
+
+  end;
+  
 end;
 
 procedure TFrmBaPJ.suiedtZYHKeyDown(Sender: TObject; var Key: Word;

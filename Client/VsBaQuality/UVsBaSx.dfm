@@ -1,38 +1,38 @@
 inherited FrmBaSx: TFrmBaSx
   Caption = #30149#20363#31579#36873
-  ClientHeight = 618
-  ClientWidth = 1237
+  ClientHeight = 562
+  ClientWidth = 1008
   Font.Charset = ANSI_CHARSET
   Font.Height = -12
   Font.Name = #24494#36719#38597#40657
-  ExplicitWidth = 1253
-  ExplicitHeight = 656
+  ExplicitWidth = 1024
+  ExplicitHeight = 600
   PixelsPerInch = 96
   TextHeight = 17
   inherited advfcstsbr: TAdvOfficeStatusBar
-    Top = 599
-    Width = 1237
-    ExplicitTop = 599
-    ExplicitWidth = 1237
+    Top = 543
+    Width = 1008
+    ExplicitTop = 543
+    ExplicitWidth = 1008
   end
   inherited advtlbrpgr1: TAdvToolBarPager
-    Width = 1237
-    ExplicitWidth = 1237
+    Width = 1008
+    ExplicitWidth = 1008
     inherited AdvPage1: TAdvPage
-      Width = 1229
-      ExplicitWidth = 1229
+      Width = 1000
+      ExplicitWidth = 1000
     end
   end
   inherited AdvPanel1: TAdvPanel
-    Width = 1237
-    Height = 574
-    ExplicitWidth = 1237
-    ExplicitHeight = 574
+    Width = 1008
+    Height = 518
+    ExplicitWidth = 1008
+    ExplicitHeight = 518
     FullHeight = 200
     object AdvSplitter1: TAdvSplitter
-      Left = 681
+      Left = 456
       Top = 89
-      Height = 485
+      Height = 429
       Beveled = True
       Appearance.BorderColor = clNone
       Appearance.BorderColorHot = clNone
@@ -48,7 +48,7 @@ inherited FrmBaSx: TFrmBaSx
     object AdvPanel2: TAdvPanel
       Left = 0
       Top = 0
-      Width = 1237
+      Width = 1008
       Height = 89
       Align = alTop
       BevelOuter = bvNone
@@ -79,7 +79,7 @@ inherited FrmBaSx: TFrmBaSx
       object AdvGroupBox1: TAdvGroupBox
         Left = 0
         Top = 0
-        Width = 1237
+        Width = 1008
         Height = 89
         Align = alClient
         Caption = #30149#20363#31579#36873#26465#20214
@@ -88,10 +88,10 @@ inherited FrmBaSx: TFrmBaSx
           Left = 9
           Top = 56
           Width = 208
-          Height = 20
+          Height = 33
           Font.Charset = ANSI_CHARSET
           Font.Color = clWindowText
-          Font.Height = -12
+          Font.Height = -14
           Font.Name = #24494#36719#38597#40657
           Font.Style = []
           ParentFont = False
@@ -105,10 +105,10 @@ inherited FrmBaSx: TFrmBaSx
           Left = 9
           Top = 19
           Width = 208
-          Height = 20
+          Height = 31
           Font.Charset = ANSI_CHARSET
           Font.Color = clWindowText
-          Font.Height = -12
+          Font.Height = -14
           Font.Name = #24494#36719#38597#40657
           Font.Style = []
           ParentFont = False
@@ -186,7 +186,7 @@ inherited FrmBaSx: TFrmBaSx
           Caption = #31579#36873
           Font.Charset = ANSI_CHARSET
           Font.Color = clWindowText
-          Font.Height = -12
+          Font.Height = -14
           Font.Name = #24494#36719#38597#40657
           Font.Style = []
           ImageIndex = 11
@@ -217,7 +217,7 @@ inherited FrmBaSx: TFrmBaSx
           Appearance.ColorMirrorDisabledTo = 15921906
         end
         object AdvedtCH0A23: TAdvEdit
-          Left = 401
+          Left = 408
           Top = 17
           Width = 121
           Height = 23
@@ -246,10 +246,10 @@ inherited FrmBaSx: TFrmBaSx
           Left = 330
           Top = 20
           Width = 71
-          Height = 20
+          Height = 27
           Font.Charset = ANSI_CHARSET
           Font.Color = clWindowText
-          Font.Height = -12
+          Font.Height = -14
           Font.Name = #24494#36719#38597#40657
           Font.Style = []
           ParentFont = False
@@ -263,10 +263,10 @@ inherited FrmBaSx: TFrmBaSx
           Left = 330
           Top = 53
           Width = 55
-          Height = 20
-          Font.Charset = GB2312_CHARSET
+          Height = 31
+          Font.Charset = ANSI_CHARSET
           Font.Color = clWindowText
-          Font.Height = -12
+          Font.Height = -14
           Font.Name = #24494#36719#38597#40657
           Font.Style = []
           ParentFont = False
@@ -280,10 +280,10 @@ inherited FrmBaSx: TFrmBaSx
           Left = 401
           Top = 53
           Width = 55
-          Height = 20
+          Height = 30
           Font.Charset = ANSI_CHARSET
           Font.Color = clWindowText
-          Font.Height = -12
+          Font.Height = -14
           Font.Name = #24494#36719#38597#40657
           Font.Style = []
           ParentFont = False
@@ -299,12 +299,18 @@ inherited FrmBaSx: TFrmBaSx
           Width = 81
           Height = 32
           Action = acClose
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -14
+          Font.Name = #24494#36719#38597#40657
+          Font.Style = []
           ImageIndex = 1
           NotesFont.Charset = DEFAULT_CHARSET
           NotesFont.Color = clWindowText
           NotesFont.Height = -11
           NotesFont.Name = 'Tahoma'
           NotesFont.Style = []
+          ParentFont = False
           TabOrder = 11
           Appearance.BorderColor = 12631218
           Appearance.BorderColorHot = 10079963
@@ -338,10 +344,10 @@ inherited FrmBaSx: TFrmBaSx
       end
     end
     object FlatPanel1: TFlatPanel
-      Left = 747
+      Left = 522
       Top = 89
-      Width = 490
-      Height = 485
+      Width = 486
+      Height = 429
       Transparent = True
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
@@ -354,7 +360,7 @@ inherited FrmBaSx: TFrmBaSx
       object FlatPanel2: TFlatPanel
         Left = 1
         Top = 1
-        Width = 488
+        Width = 484
         Height = 32
         ParentColor = True
         Align = alTop
@@ -363,12 +369,18 @@ inherited FrmBaSx: TFrmBaSx
           Tag = 201
           Left = 9
           Top = 5
-          Width = 45
-          Height = 23
+          Width = 49
+          Height = 26
           UIStyle = DeepBlue
+          ParentFont = False
           AutoSize = True
           Checked = False
           Caption = #20840#36873
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -14
+          Font.Name = #24494#36719#38597#40657
+          Font.Style = []
           TabOrder = 0
           State = cbUnchecked
           Transparent = False
@@ -378,12 +390,18 @@ inherited FrmBaSx: TFrmBaSx
           Tag = 202
           Left = 64
           Top = 5
-          Width = 45
-          Height = 23
+          Width = 49
+          Height = 26
           UIStyle = DeepBlue
+          ParentFont = False
           AutoSize = True
           Checked = False
           Caption = #21453#36873
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -14
+          Font.Name = #24494#36719#38597#40657
+          Font.Style = []
           TabOrder = 1
           State = cbUnchecked
           Transparent = False
@@ -396,6 +414,12 @@ inherited FrmBaSx: TFrmBaSx
           Width = 65
           Height = 25
           Caption = #20840#21462#28040
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -14
+          Font.Name = #24494#36719#38597#40657
+          Font.Style = []
+          ParentFont = False
           TabOrder = 2
           OnClick = FlatbtnAllCancleClick
         end
@@ -403,13 +427,18 @@ inherited FrmBaSx: TFrmBaSx
       object dbgrdhDest: TDBGridEh
         Left = 1
         Top = 33
-        Width = 488
-        Height = 399
+        Width = 484
+        Height = 343
         Align = alClient
         AutoFitColWidths = True
         DataGrouping.GroupLevels = <>
         DataSource = dsDest
         Flat = True
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -15
+        Font.Name = #24494#36719#38597#40657
+        Font.Style = []
         FooterColor = clWindow
         FooterFont.Charset = ANSI_CHARSET
         FooterFont.Color = clWindowText
@@ -417,19 +446,26 @@ inherited FrmBaSx: TFrmBaSx
         FooterFont.Name = #24494#36719#38597#40657
         FooterFont.Style = []
         Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit]
-        OptionsEh = [dghFixed3D, dghHighlightFocus, dghClearSelection, dghDialogFind, dghShowRecNo, dghColumnResize, dghColumnMove, dghExtendVertLines]
+        OptionsEh = [dghFixed3D, dghHighlightFocus, dghClearSelection, dghDialogFind, dghShowRecNo, dghColumnResize, dghColumnMove, dghAutoFitRowHeight, dghExtendVertLines]
+        ParentFont = False
         RowDetailPanel.Color = clBtnFace
         TabOrder = 1
         TitleFont.Charset = ANSI_CHARSET
         TitleFont.Color = clWindowText
-        TitleFont.Height = -12
+        TitleFont.Height = -14
         TitleFont.Name = #24494#36719#38597#40657
         TitleFont.Style = []
+        OnGetCellParams = dbgrdhDestGetCellParams
         Columns = <
           item
             Checkboxes = True
             EditButtons = <>
             FieldName = 'chk'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -14
+            Font.Name = #24494#36719#38597#40657
+            Font.Style = []
             Footers = <>
             Title.Alignment = taCenter
             Title.Caption = #36873#25321
@@ -438,6 +474,11 @@ inherited FrmBaSx: TFrmBaSx
           item
             EditButtons = <>
             FieldName = 'Ch0A01'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -14
+            Font.Name = #24494#36719#38597#40657
+            Font.Style = []
             Footers = <>
             Title.Alignment = taCenter
             Title.Caption = #30149#26696#21495
@@ -445,6 +486,11 @@ inherited FrmBaSx: TFrmBaSx
           item
             EditButtons = <>
             FieldName = 'CH0A00'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -14
+            Font.Name = #24494#36719#38597#40657
+            Font.Style = []
             Footers = <>
             Title.Alignment = taCenter
             Title.Caption = #20303#38498#21495
@@ -452,6 +498,11 @@ inherited FrmBaSx: TFrmBaSx
           item
             EditButtons = <>
             FieldName = 'CH0A02'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -14
+            Font.Name = #24494#36719#38597#40657
+            Font.Style = []
             Footers = <>
             Title.Alignment = taCenter
             Title.Caption = #22995#21517
@@ -459,6 +510,11 @@ inherited FrmBaSx: TFrmBaSx
           item
             EditButtons = <>
             FieldName = 'CH0A03'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -14
+            Font.Name = #24494#36719#38597#40657
+            Font.Style = []
             Footers = <>
             Title.Alignment = taCenter
             Title.Caption = #24615#21035
@@ -466,6 +522,11 @@ inherited FrmBaSx: TFrmBaSx
           item
             EditButtons = <>
             FieldName = 'CH0A23'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -14
+            Font.Name = #24494#36719#38597#40657
+            Font.Style = []
             Footers = <>
             Title.Alignment = taCenter
             Title.Caption = #20986#38498#31185#23460
@@ -473,6 +534,11 @@ inherited FrmBaSx: TFrmBaSx
           item
             EditButtons = <>
             FieldName = 'CH0A27'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -14
+            Font.Name = #24494#36719#38597#40657
+            Font.Style = []
             Footers = <>
             Title.Alignment = taCenter
             Title.Caption = #20986#38498#26085#26399
@@ -480,6 +546,11 @@ inherited FrmBaSx: TFrmBaSx
           item
             EditButtons = <>
             FieldName = 'CH0A33'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -14
+            Font.Name = #24494#36719#38597#40657
+            Font.Style = []
             Footers = <>
             Title.Alignment = taCenter
             Title.Caption = #20027#31649#21307#24072
@@ -548,14 +619,14 @@ inherited FrmBaSx: TFrmBaSx
               FooterColor = clWindow
               FooterFont.Charset = ANSI_CHARSET
               FooterFont.Color = clWindowText
-              FooterFont.Height = -12
+              FooterFont.Height = -15
               FooterFont.Name = #24494#36719#38597#40657
               FooterFont.Style = []
               RowDetailPanel.Color = clBtnFace
               TabOrder = 1
               TitleFont.Charset = ANSI_CHARSET
               TitleFont.Color = clWindowText
-              TitleFont.Height = -12
+              TitleFont.Height = -15
               TitleFont.Name = #24494#36719#38597#40657
               TitleFont.Style = []
               Columns = <
@@ -611,20 +682,25 @@ inherited FrmBaSx: TFrmBaSx
       end
       object FlatPanel8: TFlatPanel
         Left = 1
-        Top = 432
-        Width = 488
+        Top = 376
+        Width = 484
         Height = 52
         ParentColor = True
         Align = alBottom
         TabOrder = 2
         object AdvbtnSave: TAdvGlowButton
-          Left = 387
+          Left = 383
           Top = 1
           Width = 100
           Height = 50
           Hint = #20445#23384
           Align = alRight
           Caption = #20445#23384
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -14
+          Font.Name = #24494#36719#38597#40657
+          Font.Style = []
           ImageIndex = 10
           Images = DM_Img.ilButton
           NotesFont.Charset = DEFAULT_CHARSET
@@ -632,6 +708,7 @@ inherited FrmBaSx: TFrmBaSx
           NotesFont.Height = -11
           NotesFont.Name = 'Tahoma'
           NotesFont.Style = []
+          ParentFont = False
           TabOrder = 0
           OnClick = AdvbtnSaveClick
           Appearance.ColorChecked = 16111818
@@ -656,8 +733,8 @@ inherited FrmBaSx: TFrmBaSx
     object FlatPanel3: TFlatPanel
       Left = 0
       Top = 89
-      Width = 681
-      Height = 485
+      Width = 456
+      Height = 429
       Transparent = True
       Font.Charset = ANSI_CHARSET
       Font.Color = clWindowText
@@ -670,21 +747,27 @@ inherited FrmBaSx: TFrmBaSx
       object FlatPanel4: TFlatPanel
         Left = 1
         Top = 1
-        Width = 679
+        Width = 454
         Height = 32
         ParentColor = True
         Align = alTop
         TabOrder = 0
         object suichkAll: TsuiCheckBox
           Tag = 101
-          Left = 9
-          Top = 5
-          Width = 45
-          Height = 23
+          Left = 13
+          Top = 3
+          Width = 49
+          Height = 26
           UIStyle = DeepBlue
+          ParentFont = False
           AutoSize = True
           Checked = False
           Caption = #20840#36873
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -14
+          Font.Name = #24494#36719#38597#40657
+          Font.Style = []
           TabOrder = 0
           State = cbUnchecked
           Transparent = False
@@ -694,12 +777,18 @@ inherited FrmBaSx: TFrmBaSx
           Tag = 102
           Left = 64
           Top = 5
-          Width = 45
-          Height = 23
+          Width = 49
+          Height = 26
           UIStyle = DeepBlue
+          ParentFont = False
           AutoSize = True
           Checked = False
           Caption = #21453#36873
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -14
+          Font.Name = #24494#36719#38597#40657
+          Font.Style = []
           TabOrder = 1
           State = cbUnchecked
           Transparent = False
@@ -712,6 +801,12 @@ inherited FrmBaSx: TFrmBaSx
           Width = 65
           Height = 25
           Caption = #20840#21462#28040
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -14
+          Font.Name = #24494#36719#38597#40657
+          Font.Style = []
+          ParentFont = False
           TabOrder = 2
           OnClick = FlatbtnCancleClick
         end
@@ -719,13 +814,18 @@ inherited FrmBaSx: TFrmBaSx
       object dbgrdhSource: TDBGridEh
         Left = 1
         Top = 33
-        Width = 679
-        Height = 451
+        Width = 454
+        Height = 395
         Align = alClient
         AutoFitColWidths = True
         DataGrouping.GroupLevels = <>
         DataSource = ds1
         Flat = True
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -15
+        Font.Name = #24494#36719#38597#40657
+        Font.Style = []
         FooterColor = clWindow
         FooterFont.Charset = ANSI_CHARSET
         FooterFont.Color = clWindowText
@@ -734,18 +834,25 @@ inherited FrmBaSx: TFrmBaSx
         FooterFont.Style = []
         Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit]
         OptionsEh = [dghFixed3D, dghHighlightFocus, dghClearSelection, dghDialogFind, dghShowRecNo, dghColumnResize, dghColumnMove, dghExtendVertLines]
+        ParentFont = False
         RowDetailPanel.Color = clBtnFace
         TabOrder = 1
         TitleFont.Charset = ANSI_CHARSET
         TitleFont.Color = clWindowText
-        TitleFont.Height = -12
+        TitleFont.Height = -15
         TitleFont.Name = #24494#36719#38597#40657
         TitleFont.Style = []
+        OnGetCellParams = dbgrdhSourceGetCellParams
         Columns = <
           item
             Checkboxes = True
             EditButtons = <>
             FieldName = 'chk'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -14
+            Font.Name = #24494#36719#38597#40657
+            Font.Style = []
             Footers = <>
             Title.Alignment = taCenter
             Title.Caption = #36873#25321
@@ -754,6 +861,11 @@ inherited FrmBaSx: TFrmBaSx
           item
             EditButtons = <>
             FieldName = 'Ch0A01'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -14
+            Font.Name = #24494#36719#38597#40657
+            Font.Style = []
             Footers = <>
             Title.Alignment = taCenter
             Title.Caption = #30149#26696#21495
@@ -761,6 +873,11 @@ inherited FrmBaSx: TFrmBaSx
           item
             EditButtons = <>
             FieldName = 'CH0A00'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -14
+            Font.Name = #24494#36719#38597#40657
+            Font.Style = []
             Footers = <>
             Title.Alignment = taCenter
             Title.Caption = #20303#38498#21495
@@ -768,6 +885,11 @@ inherited FrmBaSx: TFrmBaSx
           item
             EditButtons = <>
             FieldName = 'CH0A02'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -14
+            Font.Name = #24494#36719#38597#40657
+            Font.Style = []
             Footers = <>
             Title.Alignment = taCenter
             Title.Caption = #22995#21517
@@ -775,6 +897,11 @@ inherited FrmBaSx: TFrmBaSx
           item
             EditButtons = <>
             FieldName = 'CH0A03'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -14
+            Font.Name = #24494#36719#38597#40657
+            Font.Style = []
             Footers = <>
             Title.Alignment = taCenter
             Title.Caption = #24615#21035
@@ -782,6 +909,11 @@ inherited FrmBaSx: TFrmBaSx
           item
             EditButtons = <>
             FieldName = 'CH0A23'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -14
+            Font.Name = #24494#36719#38597#40657
+            Font.Style = []
             Footers = <>
             Title.Alignment = taCenter
             Title.Caption = #20986#38498#31185#23460
@@ -789,6 +921,11 @@ inherited FrmBaSx: TFrmBaSx
           item
             EditButtons = <>
             FieldName = 'CH0A27'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -14
+            Font.Name = #24494#36719#38597#40657
+            Font.Style = []
             Footers = <>
             Title.Alignment = taCenter
             Title.Caption = #20986#38498#26085#26399
@@ -796,6 +933,11 @@ inherited FrmBaSx: TFrmBaSx
           item
             EditButtons = <>
             FieldName = 'CH0A33'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -14
+            Font.Name = #24494#36719#38597#40657
+            Font.Style = []
             Footers = <>
             Title.Alignment = taCenter
             Title.Caption = #20027#31649#21307#24072
@@ -805,10 +947,10 @@ inherited FrmBaSx: TFrmBaSx
       end
     end
     object FlatPanel5: TFlatPanel
-      Left = 684
+      Left = 459
       Top = 89
       Width = 63
-      Height = 485
+      Height = 429
       ParentColor = True
       Align = alLeft
       TabOrder = 3
@@ -878,37 +1020,37 @@ inherited FrmBaSx: TFrmBaSx
     end
   end
   inherited AdvOfficeStatusBarOfficeStyler1: TAdvOfficeStatusBarOfficeStyler
-    Left = 152
-    Top = 512
+    Left = 176
+    Top = 448
   end
   inherited AdvToolBarOfficeStyler1: TAdvToolBarOfficeStyler
-    Left = 184
-    Top = 512
+    Left = 216
+    Top = 448
   end
   inherited advfrmstylr1: TAdvFormStyler
-    Left = 280
-    Top = 512
+    Left = 344
+    Top = 440
   end
   inherited AdvPanelStyler1: TAdvPanelStyler
-    Left = 248
-    Top = 512
+    Left = 312
+    Top = 440
   end
   inherited dosm1: TDosMove
-    Left = 216
-    Top = 512
+    Left = 264
+    Top = 432
   end
   inherited DLCDS: TDlClientDataset
-    Left = 112
-    Top = 509
+    Left = 136
+    Top = 461
   end
   inherited al1: TActionList
-    Left = 384
-    Top = 517
+    Left = 408
+    Top = 421
   end
   inherited ds1: TDataSource
     DataSet = clientdtSource
-    Left = 352
-    Top = 517
+    Left = 376
+    Top = 445
   end
   object dsDest: TDataSource
     DataSet = clientdtDest
@@ -951,8 +1093,8 @@ inherited FrmBaSx: TFrmBaSx
   object clientdtSource: TClientDataSet
     Aggregates = <>
     Params = <>
-    Left = 312
-    Top = 512
+    Left = 264
+    Top = 464
     object clientdtSourcechk: TBooleanField
       FieldName = 'chk'
     end

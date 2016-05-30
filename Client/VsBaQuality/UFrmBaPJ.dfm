@@ -88,9 +88,15 @@ inherited FrmBaPJ: TFrmBaPJ
         object EllipsLabel1: TEllipsLabel
           Left = 3
           Top = 25
-          Width = 48
-          Height = 17
-          Caption = #20303#38498#21495#65306
+          Width = 42
+          Height = 20
+          Caption = #20303#38498#21495
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -14
+          Font.Name = #24494#36719#38597#40657
+          Font.Style = []
+          ParentFont = False
           Layout = tlCenter
           EllipsType = etNone
           Version = '1.0.0.0'
@@ -109,10 +115,15 @@ inherited FrmBaPJ: TFrmBaPJ
         object AdvbtnActLocate: TAdvGlowButton
           Left = 202
           Top = 13
-          Width = 85
+          Width = 90
           Height = 32
           Action = ActLocate
           AutoSize = True
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -14
+          Font.Name = #24494#36719#38597#40657
+          Font.Style = []
           ImageIndex = 11
           Images = DM_Img.ilButton
           NotesFont.Charset = DEFAULT_CHARSET
@@ -120,6 +131,7 @@ inherited FrmBaPJ: TFrmBaPJ
           NotesFont.Height = -11
           NotesFont.Name = 'Tahoma'
           NotesFont.Style = []
+          ParentFont = False
           Position = bpLeft
           TabOrder = 1
           Appearance.ColorChecked = 16111818
@@ -151,10 +163,10 @@ inherited FrmBaPJ: TFrmBaPJ
         DataGrouping.GroupLevels = <>
         DataSource = ds1
         Flat = True
-        Font.Charset = DEFAULT_CHARSET
+        Font.Charset = ANSI_CHARSET
         Font.Color = clWindowText
-        Font.Height = -11
-        Font.Name = 'Tahoma'
+        Font.Height = -15
+        Font.Name = #24494#36719#38597#40657
         Font.Style = []
         FooterColor = clWindow
         FooterFont.Charset = DEFAULT_CHARSET
@@ -169,26 +181,42 @@ inherited FrmBaPJ: TFrmBaPJ
         TabOrder = 1
         TitleFont.Charset = ANSI_CHARSET
         TitleFont.Color = clWindowText
-        TitleFont.Height = -12
+        TitleFont.Height = -14
         TitleFont.Name = #24494#36719#38597#40657
         TitleFont.Style = []
         OnDblClick = dbgrdhBaListDblClick
+        OnGetCellParams = dbgrdhBaListGetCellParams
         Columns = <
           item
             EditButtons = <>
             FieldName = 'CH0A00'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -14
+            Font.Name = #24494#36719#38597#40657
+            Font.Style = []
             Footers = <>
             Title.Caption = #20303#38498#21495
           end
           item
             EditButtons = <>
             FieldName = 'CH0A02'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = #24494#36719#38597#40657
+            Font.Style = []
             Footers = <>
             Title.Caption = #22995#21517
           end
           item
             EditButtons = <>
             FieldName = 'CH0A03'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = #24494#36719#38597#40657
+            Font.Style = []
             Footers = <>
             Title.Caption = #24615#21035
           end>
@@ -218,14 +246,19 @@ inherited FrmBaPJ: TFrmBaPJ
         Align = alBottom
         TabOrder = 0
         object AdvbtnacSave: TAdvGlowButton
-          Left = 854
+          Left = 842
           Top = 1
-          Width = 78
+          Width = 90
           Height = 45
           Hint = #20445#23384
           Align = alRight
           AutoSize = True
           Caption = #20445#23384
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -14
+          Font.Name = #24494#36719#38597#40657
+          Font.Style = []
           ImageIndex = 10
           Images = DM_Img.ilButton
           NotesFont.Charset = DEFAULT_CHARSET
@@ -233,6 +266,7 @@ inherited FrmBaPJ: TFrmBaPJ
           NotesFont.Height = -11
           NotesFont.Name = 'Tahoma'
           NotesFont.Style = []
+          ParentFont = False
           TabOrder = 0
           OnClick = AdvbtnacSaveClick
           Appearance.ColorChecked = 16111818
@@ -253,18 +287,24 @@ inherited FrmBaPJ: TFrmBaPJ
           Appearance.ColorMirrorDisabledTo = 15921906
         end
         object AdvbtnClose: TAdvGlowButton
-          Left = 769
+          Left = 757
           Top = 1
           Width = 85
           Height = 45
           Align = alRight
           Action = acClose
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -14
+          Font.Name = #24494#36719#38597#40657
+          Font.Style = []
           ImageIndex = 1
           NotesFont.Charset = DEFAULT_CHARSET
           NotesFont.Color = clWindowText
           NotesFont.Height = -11
           NotesFont.Name = 'Tahoma'
           NotesFont.Style = []
+          ParentFont = False
           TabOrder = 1
           Appearance.ColorChecked = 16111818
           Appearance.ColorCheckedTo = 16367008
@@ -297,72 +337,123 @@ inherited FrmBaPJ: TFrmBaPJ
         Flat = True
         Font.Charset = ANSI_CHARSET
         Font.Color = clWindowText
-        Font.Height = -12
+        Font.Height = -15
         Font.Name = #24494#36719#38597#40657
         Font.Style = []
-        FooterColor = clWindow
+        FooterColor = clYellow
         FooterFont.Charset = ANSI_CHARSET
-        FooterFont.Color = clWindowText
-        FooterFont.Height = -12
+        FooterFont.Color = clBlack
+        FooterFont.Height = -14
         FooterFont.Name = #24494#36719#38597#40657
         FooterFont.Style = []
+        FooterRowCount = 1
         OptionsEh = [dghFixed3D, dghHighlightFocus, dghClearSelection, dghFitRowHeightToText, dghDialogFind, dghShowRecNo, dghColumnResize, dghColumnMove, dghAutoFitRowHeight, dghExtendVertLines]
         ParentFont = False
         RowDetailPanel.Color = clBtnFace
         RowHeight = 2
-        RowLines = 1
+        RowLines = 3
+        SumList.Active = True
+        SumList.VirtualRecords = True
         TabOrder = 1
         TitleFont.Charset = ANSI_CHARSET
         TitleFont.Color = clWindowText
-        TitleFont.Height = -12
+        TitleFont.Height = -14
         TitleFont.Name = #24494#36719#38597#40657
         TitleFont.Style = []
         UseMultiTitle = True
+        OnGetFooterParams = dbgrdhPJDetailGetFooterParams
         Columns = <
           item
             Alignment = taCenter
             EditButtons = <>
             FieldName = 'FcodeName'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -14
+            Font.Name = #24494#36719#38597#40657
+            Font.Style = []
             Footers = <>
             HideDuplicates = True
             ReadOnly = True
             TextEditing = False
             Title.Caption = #39033#30446
             Width = 139
+            WordWrap = True
           end
           item
+            Alignment = taCenter
+            AutoFitColWidth = False
             EditButtons = <>
             FieldName = 'ScodeName'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -14
+            Font.Name = #24494#36719#38597#40657
+            Font.Style = []
             Footers = <>
             HideDuplicates = True
             ReadOnly = True
             TextEditing = False
             Title.Caption = #36136#37327#26631#20934'|'#23376#39033#30446
             Width = 260
+            WordWrap = True
           end
           item
+            DropDownBox.AutoFitColWidths = False
             EditButtons = <>
             FieldName = 'TcodeName'
-            Footers = <>
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -14
+            Font.Name = #24494#36719#38597#40657
+            Font.Style = []
+            Footer.WordWrap = True
+            Footers = <
+              item
+                Alignment = taRightJustify
+                Value = #24635#25187#20998
+                ValueType = fvtStaticText
+              end>
             ReadOnly = True
             TextEditing = False
             Title.Caption = #36136#37327#26631#20934'|'#32454#39033#30446
             Width = 218
+            WordWrap = True
           end
           item
             Alignment = taCenter
             DisplayFormat = '0.00'
             EditButtons = <>
             FieldName = 'Score'
-            Footers = <>
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -14
+            Font.Name = #24494#36719#38597#40657
+            Font.Style = []
+            Footers = <
+              item
+                DisplayFormat = '0.00'
+                ValueType = fvtSum
+              end
+              item
+                DisplayFormat = '0.00'
+                Value = 'Score'
+                ValueType = fvtFieldValue
+              end>
             Title.Caption = #25187#20998
           end
           item
             EditButtons = <>
             FieldName = 'Remark'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -14
+            Font.Name = #24494#36719#38597#40657
+            Font.Style = []
             Footers = <>
             Title.Caption = #20854#20182#38382#39064
             Width = 195
+            WordWrap = True
           end>
         object RowDetailData: TRowDetailPanelControlEh
         end

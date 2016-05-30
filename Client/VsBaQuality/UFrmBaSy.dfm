@@ -97,10 +97,10 @@ inherited FrmBaSy: TFrmBaSy
           DataGrouping.GroupLevels = <>
           DataSource = dsLocal
           Flat = True
-          Font.Charset = DEFAULT_CHARSET
+          Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Tahoma'
+          Font.Height = -15
+          Font.Name = #24494#36719#38597#40657
           Font.Style = []
           FooterColor = clWindow
           FooterFont.Charset = DEFAULT_CHARSET
@@ -115,13 +115,19 @@ inherited FrmBaSy: TFrmBaSy
           TabOrder = 0
           TitleFont.Charset = ANSI_CHARSET
           TitleFont.Color = clBlack
-          TitleFont.Height = -12
+          TitleFont.Height = -14
           TitleFont.Name = #24494#36719#38597#40657
           TitleFont.Style = []
+          OnGetCellParams = dbgrdhBarecordGetCellParams
           Columns = <
             item
               EditButtons = <>
               FieldName = 'CH0A01'
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clBlack
+              Font.Height = -14
+              Font.Name = #24494#36719#38597#40657
+              Font.Style = []
               Footers = <>
               ReadOnly = True
               Title.Caption = #30149#26696#21495
@@ -130,6 +136,11 @@ inherited FrmBaSy: TFrmBaSy
             item
               EditButtons = <>
               FieldName = 'CH0A02'
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clBlack
+              Font.Height = -14
+              Font.Name = #24494#36719#38597#40657
+              Font.Style = []
               Footers = <>
               ReadOnly = True
               Title.Caption = #22995#21517
@@ -137,6 +148,11 @@ inherited FrmBaSy: TFrmBaSy
             end
             item
               EditButtons = <>
+              Font.Charset = ANSI_CHARSET
+              Font.Color = clBlack
+              Font.Height = -14
+              Font.Name = #24494#36719#38597#40657
+              Font.Style = []
               Footers = <>
               ReadOnly = True
               Title.Caption = #20998#20540
@@ -171,10 +187,10 @@ inherited FrmBaSy: TFrmBaSy
           DataGrouping.GroupLevels = <>
           DataSource = dsHistory
           Flat = True
-          Font.Charset = DEFAULT_CHARSET
+          Font.Charset = ANSI_CHARSET
           Font.Color = clBlack
-          Font.Height = -11
-          Font.Name = 'Tahoma'
+          Font.Height = -15
+          Font.Name = #24494#36719#38597#40657
           Font.Style = []
           FooterColor = clWindow
           FooterFont.Charset = DEFAULT_CHARSET
@@ -189,10 +205,11 @@ inherited FrmBaSy: TFrmBaSy
           TabOrder = 0
           TitleFont.Charset = ANSI_CHARSET
           TitleFont.Color = clBlack
-          TitleFont.Height = -12
+          TitleFont.Height = -15
           TitleFont.Name = #24494#36719#38597#40657
           TitleFont.Style = []
           OnDblClick = dbgrdhBaHistoryDblClick
+          OnGetCellParams = dbgrdhBaHistoryGetCellParams
           Columns = <
             item
               EditButtons = <>
@@ -227,17 +244,17 @@ inherited FrmBaSy: TFrmBaSy
               DataGrouping.GroupLevels = <>
               Flat = False
               FooterColor = clWindow
-              FooterFont.Charset = DEFAULT_CHARSET
+              FooterFont.Charset = ANSI_CHARSET
               FooterFont.Color = clBlack
-              FooterFont.Height = -11
-              FooterFont.Name = 'Tahoma'
+              FooterFont.Height = -15
+              FooterFont.Name = #24494#36719#38597#40657
               FooterFont.Style = []
               RowDetailPanel.Color = clBtnFace
               TabOrder = 0
-              TitleFont.Charset = DEFAULT_CHARSET
+              TitleFont.Charset = ANSI_CHARSET
               TitleFont.Color = clBlack
-              TitleFont.Height = -11
-              TitleFont.Name = 'Tahoma'
+              TitleFont.Height = -15
+              TitleFont.Name = #24494#36719#38597#40657
               TitleFont.Style = []
               Columns = <
                 item
@@ -299,25 +316,37 @@ inherited FrmBaSy: TFrmBaSy
       FullHeight = 200
       object EllipsLabel1: TEllipsLabel
         Left = 14
-        Top = 24
-        Width = 48
-        Height = 13
+        Top = 20
+        Width = 60
+        Height = 20
         Caption = #20986#38498#26085#26399
+        Font.Charset = GB2312_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -15
+        Font.Name = #24494#36719#38597#40657
+        Font.Style = []
+        ParentFont = False
         EllipsType = etNone
         Version = '1.0.0.0'
       end
       object EllipsLabel2: TEllipsLabel
         Left = 199
-        Top = 24
-        Width = 12
-        Height = 13
+        Top = 20
+        Width = 15
+        Height = 20
         Caption = #33267
+        Font.Charset = GB2312_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -15
+        Font.Name = #24494#36719#38597#40657
+        Font.Style = []
+        ParentFont = False
         EllipsType = etNone
         Version = '1.0.0.0'
       end
       object advDtpks: TAdvDateTimePicker
         Left = 82
-        Top = 20
+        Top = 15
         Width = 97
         Height = 25
         Date = 42502.592581018520000000
@@ -343,7 +372,7 @@ inherited FrmBaSy: TFrmBaSy
       end
       object advDtpjs: TAdvDateTimePicker
         Left = 231
-        Top = 20
+        Top = 15
         Width = 97
         Height = 25
         Date = 42502.592581018520000000
@@ -370,13 +399,13 @@ inherited FrmBaSy: TFrmBaSy
       object AdvbtnOK: TAdvGlowButton
         Left = 373
         Top = 13
-        Width = 81
+        Width = 90
         Height = 32
         AutoSize = True
         Caption = #20998#26512
         Font.Charset = GB2312_CHARSET
         Font.Color = clWindowText
-        Font.Height = -12
+        Font.Height = -15
         Font.Name = #24494#36719#38597#40657
         Font.Style = []
         ImageIndex = 23
@@ -413,12 +442,18 @@ inherited FrmBaSy: TFrmBaSy
         Width = 81
         Height = 32
         Action = acClose
+        Font.Charset = GB2312_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -15
+        Font.Name = #24494#36719#38597#40657
+        Font.Style = []
         ImageIndex = 1
         NotesFont.Charset = DEFAULT_CHARSET
         NotesFont.Color = clWindowText
         NotesFont.Height = -11
         NotesFont.Name = 'Tahoma'
         NotesFont.Style = []
+        ParentFont = False
         TabOrder = 3
         Appearance.BorderColor = 12631218
         Appearance.BorderColorHot = 10079963

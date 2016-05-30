@@ -43,6 +43,10 @@ type
     procedure DLCDSLocalAfterScroll(DataSet: TDataSet);
     procedure dbgrdhBaHistoryDblClick(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
+    procedure dbgrdhBarecordGetCellParams(Sender: TObject; Column: TColumnEh;
+      AFont: TFont; var Background: TColor; State: TGridDrawState);
+    procedure dbgrdhBaHistoryGetCellParams(Sender: TObject; Column: TColumnEh;
+      AFont: TFont; var Background: TColor; State: TGridDrawState);
   private
     { Private declarations }
     /// <summary>
@@ -137,6 +141,28 @@ begin
   frmZkdetal.ShowModal;
   if Assigned(FrmZkDetail) then
      frmZkdetal.Free;
+end;
+
+procedure TFrmBaSy.dbgrdhBaHistoryGetCellParams(Sender: TObject;
+  Column: TColumnEh; AFont: TFont; var Background: TColor;
+  State: TGridDrawState);
+begin
+  inherited;
+  if dbgrdhBaHistory.SumList.RecNo mod 2 = 0 then
+     Background :=clSkyBlue
+  else
+    Background :=clYellow;
+end;
+
+procedure TFrmBaSy.dbgrdhBarecordGetCellParams(Sender: TObject;
+  Column: TColumnEh; AFont: TFont; var Background: TColor;
+  State: TGridDrawState);
+begin
+  inherited;
+  if dbgrdhBarecord.SumList.RecNo mod 2 = 0 then
+     Background :=clSkyBlue
+  else
+    Background :=clYellow;
 end;
 
 /// <summary>

@@ -32,15 +32,23 @@ inherited FrmZkDetail: TFrmZkDetail
     FullHeight = 200
     inherited dbgrdh_DLCDS: TDBGridEh
       Font.Charset = ANSI_CHARSET
-      Font.Height = -12
+      Font.Height = -15
       Font.Name = #24494#36719#38597#40657
       Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
       OptionsEh = [dghFixed3D, dghHighlightFocus, dghClearSelection, dghAutoSortMarking, dghEnterAsTab, dghRowHighlight, dghDialogFind, dghShowRecNo, dghColumnResize, dghColumnMove]
       ParentFont = False
+      TitleFont.Charset = ANSI_CHARSET
+      TitleFont.Height = -15
+      TitleFont.Name = #24494#36719#38597#40657
       Columns = <
         item
           EditButtons = <>
           FieldName = 'CH0A01'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -14
+          Font.Name = #24494#36719#38597#40657
+          Font.Style = []
           Footers = <>
           Title.Caption = #30149#26696#21495
           Title.Font.Charset = ANSI_CHARSET
@@ -53,6 +61,11 @@ inherited FrmZkDetail: TFrmZkDetail
         item
           EditButtons = <>
           FieldName = 'dmmc'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -14
+          Font.Name = #24494#36719#38597#40657
+          Font.Style = []
           Footers = <>
           Title.Caption = #25187#20998#39033
           Title.Font.Charset = ANSI_CHARSET
@@ -65,6 +78,11 @@ inherited FrmZkDetail: TFrmZkDetail
         item
           EditButtons = <>
           FieldName = 'Score'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -14
+          Font.Name = #24494#36719#38597#40657
+          Font.Style = []
           Footers = <>
           Title.Caption = #25187#20998
           Title.Font.Charset = GB2312_CHARSET
@@ -76,6 +94,11 @@ inherited FrmZkDetail: TFrmZkDetail
         item
           EditButtons = <>
           FieldName = 'Person'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -14
+          Font.Name = #24494#36719#38597#40657
+          Font.Style = []
           Footers = <>
           Title.Caption = #35780#20998#20154
           Title.Font.Charset = ANSI_CHARSET
@@ -87,6 +110,11 @@ inherited FrmZkDetail: TFrmZkDetail
         item
           EditButtons = <>
           FieldName = 'PFSJ'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -14
+          Font.Name = #24494#36719#38597#40657
+          Font.Style = []
           Footers = <>
           Title.Caption = #35780#20998#26102#38388
           Title.Font.Charset = ANSI_CHARSET

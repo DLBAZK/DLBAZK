@@ -94,6 +94,10 @@ type
     procedure AdvGlowButton1Click(Sender: TObject);
     procedure suiedtstartExit(Sender: TObject);
     procedure AdvbtnSaveClick(Sender: TObject);
+    procedure dbgrdhSourceGetCellParams(Sender: TObject; Column: TColumnEh;
+      AFont: TFont; var Background: TColor; State: TGridDrawState);
+    procedure dbgrdhDestGetCellParams(Sender: TObject; Column: TColumnEh;
+      AFont: TFont; var Background: TColor; State: TGridDrawState);
   private
     { Private declarations }
     /// <summary>
@@ -268,16 +272,22 @@ procedure TFrmBaSx.AdvGlowButton1Click(Sender: TObject);
 
     end;
 var
-  fsql:string;
+  fsql,wsql:string;
   clientdttmp:TClientDataSet;
+
 begin
   inherited;
-
+  wsql := WhereSql;
+  if wsql= '' then
+  begin
+    ShowMsgSure('鉴于病案历史数据量过大，建议按条件搜索！');
+    Exit;
+  end;
   StartWaitWindow('正在筛选...');
   try
     clientdttmp := TClientDataSet.Create(nil);
     //筛选病案
-    fsql := ssql+wheresql;
+    fsql := ssql+wsql;
     TMidProxy.SqlOpen(fsql,clientdttmp);
     if clientdttmp.Active then
     begin     
@@ -299,8 +309,11 @@ begin
           EnableControls;
        end;
       end;
-      if not clientdtSource.IsEmpty then clientdtSource.First;
-      
+      if not clientdtSource.IsEmpty then
+      begin
+        clientdtSource.First;
+        dbgrdhSource.DataSource := ds1;
+      end;
     end;
   finally
     EndWaitWindow;
@@ -312,6 +325,29 @@ begin
   inherited Create(Aower,EuVsBaSx,'select getdate()');
   clientdtSource.CreateDataSet;
   clientdtDest.CreateDataSet;
+  dbgrdhSource.DataSource :=nil;
+  dbgrdhDest.DataSource :=nil;
+end;
+
+procedure TFrmBaSx.dbgrdhDestGetCellParams(Sender: TObject; Column: TColumnEh;
+  AFont: TFont; var Background: TColor; State: TGridDrawState);
+begin
+  inherited;
+   if dbgrdhDest.SumList.RecNo mod 2 = 0 then
+    Background := clSkyBlue
+  else
+    Background :=clYellow;
+end;
+
+procedure TFrmBaSx.dbgrdhSourceGetCellParams(Sender: TObject; Column: TColumnEh;
+  AFont: TFont; var Background: TColor; State: TGridDrawState);
+begin
+  inherited;
+  if dbgrdhSource.SumList.RecNo mod 2 = 0 then
+    Background := clSkyBlue
+  else
+    Background :=clYellow;
+
 end;
 
 procedure TFrmBaSx.FlatbtnAllCancleClick(Sender: TObject);
@@ -344,6 +380,7 @@ var
           Next;
 
       end;
+      First;
       EnableControls;
     end;
   end;
@@ -371,20 +408,34 @@ begin
          end;
 
        end;
-       if not clientdtDest.IsEmpty then clientdtDest.First;
-
+       dbgrdhSource.DataSource := nil;
+       if not clientdtDest.IsEmpty then
+       begin
+         clientdtDest.First;
+         dbgrdhDest.DataSource := dsDest;
+       end
+       else
+         dbgrdhDest.DataSource := nil;
      end;
      1: //选中右移
      begin
        if not clientdtSource.Active then  Exit;
        if clientdtSource.RecordCount =0 then Exit;
        LeftOrRight(clientdtSource,clientdtDest);
+       if clientdtSource.IsEmpty then
+          dbgrdhSource.DataSource :=nil;
+       if not clientdtDest.IsEmpty then
+         dbgrdhDest.DataSource := dsDest;
      end;
      2:  //选中左移
      begin
        if not clientdtDest.Active then Exit;
        if clientdtDest.RecordCount = 0 then Exit;
        LeftOrRight(clientdtDest,clientdtSource);
+       if clientdtDest.IsEmpty then
+         dbgrdhDest.DataSource :=nil;
+       if not clientdtSource.IsEmpty then
+         dbgrdhSource.DataSource := ds1;
      end;
      3:  //全部左移
      begin
@@ -405,8 +456,14 @@ begin
          end;
 
        end;
-       if not clientdtSource.IsEmpty then clientdtSource.First;
-       
+       dbgrdhDest.DataSource :=nil;
+       if not clientdtSource.IsEmpty then
+       begin
+         clientdtSource.First;
+         dbgrdhSource.DataSource := ds1;
+       end
+       else
+         dbgrdhSource.DataSource := nil;
      end;
   end;
 end;
