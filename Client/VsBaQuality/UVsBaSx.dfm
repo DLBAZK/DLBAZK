@@ -20,7 +20,9 @@ inherited FrmBaSx: TFrmBaSx
     ExplicitWidth = 1008
     inherited AdvPage1: TAdvPage
       Width = 1000
+      Height = 0
       ExplicitWidth = 1000
+      ExplicitHeight = 0
     end
   end
   inherited AdvPanel1: TAdvPanel
@@ -83,6 +85,12 @@ inherited FrmBaSx: TFrmBaSx
         Height = 89
         Align = alClient
         Caption = #30149#20363#31579#36873#26465#20214
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -15
+        Font.Name = #24494#36719#38597#40657
+        Font.Style = []
+        ParentFont = False
         TabOrder = 0
         object dladvChkZyts: TDLAdvCheckBox
           Left = 9
@@ -121,11 +129,17 @@ inherited FrmBaSx: TFrmBaSx
         object advDtpks: TAdvDateTimePicker
           Left = 91
           Top = 19
-          Width = 81
-          Height = 21
+          Width = 90
+          Height = 25
           Date = 42507.468182870370000000
           Time = 42507.468182870370000000
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = #24494#36719#38597#40657
+          Font.Style = []
           Kind = dkDate
+          ParentFont = False
           TabOrder = 0
           BorderStyle = bsSingle
           Ctl3D = True
@@ -140,11 +154,17 @@ inherited FrmBaSx: TFrmBaSx
         object advDtpjs: TAdvDateTimePicker
           Left = 223
           Top = 19
-          Width = 81
-          Height = 21
+          Width = 90
+          Height = 25
           Date = 42507.468182870370000000
           Time = 42507.468182870370000000
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = #24494#36719#38597#40657
+          Font.Style = []
           Kind = dkDate
+          ParentFont = False
           TabOrder = 1
           BorderStyle = bsSingle
           Ctl3D = True
@@ -159,7 +179,7 @@ inherited FrmBaSx: TFrmBaSx
         object suiedtstart: TsuiEdit
           Left = 91
           Top = 57
-          Width = 81
+          Width = 90
           Height = 19
           UIStyle = WinXP
           BorderColor = 6842472
@@ -170,7 +190,7 @@ inherited FrmBaSx: TFrmBaSx
         object suiedtEnd: TsuiEdit
           Left = 223
           Top = 57
-          Width = 81
+          Width = 90
           Height = 19
           UIStyle = WinXP
           BorderColor = 6842472
@@ -181,7 +201,7 @@ inherited FrmBaSx: TFrmBaSx
         object AdvGlowButton1: TAdvGlowButton
           Left = 542
           Top = 52
-          Width = 97
+          Width = 100
           Height = 31
           Caption = #31579#36873
           Font.Charset = ANSI_CHARSET
@@ -240,6 +260,7 @@ inherited FrmBaSx: TFrmBaSx
           OnEnter = AdvedtCH0A23Enter
           OnExit = AdvedtCH0A23Exit
           OnKeyDown = AdvedtCH0A23KeyDown
+          OnKeyPress = AdvedtCH0A23KeyPress
           Version = '2.9.4.1'
         end
         object dladvChkCH0A23: TDLAdvCheckBox
@@ -296,7 +317,7 @@ inherited FrmBaSx: TFrmBaSx
         object AdvbtnClose: TAdvGlowButton
           Left = 661
           Top = 52
-          Width = 81
+          Width = 100
           Height = 32
           Action = acClose
           Font.Charset = ANSI_CHARSET
@@ -428,7 +449,7 @@ inherited FrmBaSx: TFrmBaSx
         Left = 1
         Top = 33
         Width = 484
-        Height = 343
+        Height = 355
         Align = alClient
         AutoFitColWidths = True
         DataGrouping.GroupLevels = <>
@@ -455,7 +476,6 @@ inherited FrmBaSx: TFrmBaSx
         TitleFont.Height = -14
         TitleFont.Name = #24494#36719#38597#40657
         TitleFont.Style = []
-        OnGetCellParams = dbgrdhDestGetCellParams
         Columns = <
           item
             Checkboxes = True
@@ -682,9 +702,9 @@ inherited FrmBaSx: TFrmBaSx
       end
       object FlatPanel8: TFlatPanel
         Left = 1
-        Top = 376
+        Top = 388
         Width = 484
-        Height = 52
+        Height = 40
         ParentColor = True
         Align = alBottom
         TabOrder = 2
@@ -692,7 +712,7 @@ inherited FrmBaSx: TFrmBaSx
           Left = 383
           Top = 1
           Width = 100
-          Height = 50
+          Height = 38
           Hint = #20445#23384
           Align = alRight
           Caption = #20445#23384
@@ -727,6 +747,7 @@ inherited FrmBaSx: TFrmBaSx
           Appearance.ColorMirrorCheckedTo = 16768988
           Appearance.ColorMirrorDisabled = 11974326
           Appearance.ColorMirrorDisabledTo = 15921906
+          ExplicitHeight = 50
         end
       end
     end
@@ -755,7 +776,7 @@ inherited FrmBaSx: TFrmBaSx
         object suichkAll: TsuiCheckBox
           Tag = 101
           Left = 13
-          Top = 3
+          Top = 5
           Width = 49
           Height = 26
           UIStyle = DeepBlue
@@ -842,7 +863,6 @@ inherited FrmBaSx: TFrmBaSx
         TitleFont.Height = -15
         TitleFont.Name = #24494#36719#38597#40657
         TitleFont.Style = []
-        OnGetCellParams = dbgrdhSourceGetCellParams
         Columns = <
           item
             Checkboxes = True

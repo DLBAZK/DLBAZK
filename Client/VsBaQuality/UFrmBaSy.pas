@@ -16,7 +16,8 @@ uses
   AdvAppStyler, AdvToolBar, AdvToolBarStylers, AdvOfficeStatusBar,
   AdvOfficeStatusBarStylers, ExtCtrls, AdvGlowButton, StdCtrls, EllipsLabel,
   DBGridEhGrouping, GridsEh, DBGridEh, SUIImagePanel, SUIGroupBox, DB, DBClient,
-  UDlClientDataset,UVsMidClassList, UFrmSuiBForm, ActnList, AdvSplitter;
+  UDlClientDataset,UVsMidClassList, UFrmSuiBForm, ActnList, AdvSplitter,UFrmZkDetail,
+  Buttons;
 
 type
   TFrmBaSy = class(TFrmSuiDBForm)
@@ -31,22 +32,20 @@ type
     dsLocal: TDataSource;
     dsHistory: TDataSource;
     AdvPanel3: TAdvPanel;
-    EllipsLabel1: TEllipsLabel;
     advDtpks: TAdvDateTimePicker;
-    EllipsLabel2: TEllipsLabel;
     advDtpjs: TAdvDateTimePicker;
     AdvbtnOK: TAdvGlowButton;
     Timer1: TTimer;
     AdvSplitter1: TAdvSplitter;
     AdvbtnClose: TAdvGlowButton;
+    Label1: TLabel;
+    Label2: TLabel;
     procedure AdvbtnOKClick(Sender: TObject);
-    procedure DLCDSLocalAfterScroll(DataSet: TDataSet);
     procedure dbgrdhBaHistoryDblClick(Sender: TObject);
-    procedure Timer1Timer(Sender: TObject);
     procedure dbgrdhBarecordGetCellParams(Sender: TObject; Column: TColumnEh;
       AFont: TFont; var Background: TColor; State: TGridDrawState);
-    procedure dbgrdhBaHistoryGetCellParams(Sender: TObject; Column: TColumnEh;
-      AFont: TFont; var Background: TColor; State: TGridDrawState);
+    procedure dbgrdhBarecordCellClick(Column: TColumnEh);
+
   private
     { Private declarations }
     /// <summary>
@@ -64,7 +63,7 @@ var
 
 implementation
  uses
-   UFrmZkDetail,UGFun,UGVar;
+   UGFun,UGVar,UCommon;
 {$R *.dfm}
 
 
@@ -104,8 +103,12 @@ begin
       if DLCDSLocal.IsEmpty then
       begin
         EndWaitWindow;
+        dbgrdhBarecord.DataSource := nil;
         ShowMsgSure('结果为空!');
+        Exit;
       end;
+      dbgrdhBarecord.DataSource := dsLocal;
+      GetBazkHistory;
     end;
   finally
     EndWaitWindow; 
@@ -115,11 +118,13 @@ end;
 
 constructor TFrmBaSy.Create(Aowner: TComponent);
 begin
-  inherited Create(Aowner,EuVsBaSy,'select getdate()');
+  inherited; //Create(Aowner,EuVsBaSy,'select getdate()');
   DLCDSLocal.MidClassName := EuVsBaSy;
   DLCDSHistory.MidClassName := EuVsBaSy;
   Self.advDtpjs.Date :=Now;
   Self.advDtpks.Date := Now -7;
+  dbgrdhBarecord.DataSource := nil;
+  dbgrdhBaHistory.DataSource := nil;
 
 end;
 
@@ -127,31 +132,43 @@ end;
 /// 双击行内容 弹出显示详细病案评分记录
 /// </summary>
 procedure TFrmBaSy.dbgrdhBaHistoryDblClick(Sender: TObject);
+ const
+   sql ='select * from VsBAsyzk A left join Vssjpf B on A.Subject = B.dm where A.CH0A01 =^%s^ and A.PFSJ=^%s^';
 var
-  strBah:string;  //病案号
+  strBah,pfsj:string;  //病案号
   frmZkdetal:TFrmZkDetail;
+  sqltext:string;
 begin
   inherited;
   if not DLCDSHistory.Active then Exit;
   if DLCDSHistory.IsEmpty then Exit;
 
   strBah :=DLCDSHistory.FieldByName('CH0A01').AsString;
-  frmZkdetal := TFrmZkDetail.Create(nil);
-  frmZkdetal.StrBah := strBah;
-  frmZkdetal.ShowModal;
-  if Assigned(FrmZkDetail) then
-     frmZkdetal.Free;
+  pfsj := DLCDSHistory.FieldByName('PFSJ').AsString;
+  if strBah = '' then Exit;
+  sqltext := Format(sql,[strBah,pfsj]);
+    frmZkdetal :=TFrmZkDetail.Create(nil);
+    AutoFree(frmZkdetal);
+    frmZkdetal.bah := strBah;
+    frmZkdetal.PFSJ := pfsj;
+    frmZkdetal.ShowModal;
 end;
 
-procedure TFrmBaSy.dbgrdhBaHistoryGetCellParams(Sender: TObject;
-  Column: TColumnEh; AFont: TFont; var Background: TColor;
-  State: TGridDrawState);
+procedure TFrmBaSy.dbgrdhBarecordCellClick(Column: TColumnEh);
+var
+  Afilter:string;//过滤语句
+  Strbah:string;    //病案号
 begin
   inherited;
-  if dbgrdhBaHistory.SumList.RecNo mod 2 = 0 then
-     Background :=clSkyBlue
-  else
-    Background :=clYellow;
+  if not DLCDSLocal.Active then Exit;
+
+  if DLCDSLocal.RecordCount <1 then Exit;
+  Strbah := DLCDSLocal.FieldByName('CH0A01').AsString;
+  Afilter :=  Format(' CH0A01=%s',[QuotedStr(Strbah)]);
+  DLCDSHistory.Filtered :=False;
+  DLCDSHistory.Filter :=Afilter ;
+  DLCDSHistory.Filtered := True;
+
 end;
 
 procedure TFrmBaSy.dbgrdhBarecordGetCellParams(Sender: TObject;
@@ -159,30 +176,7 @@ procedure TFrmBaSy.dbgrdhBarecordGetCellParams(Sender: TObject;
   State: TGridDrawState);
 begin
   inherited;
-  if dbgrdhBarecord.SumList.RecNo mod 2 = 0 then
-     Background :=clSkyBlue
-  else
-    Background :=clYellow;
-end;
 
-/// <summary>
-/// 动态加载选择病案历史记录
-/// </summary>
-/// <param name="DataSet"></param>
-procedure TFrmBaSy.DLCDSLocalAfterScroll(DataSet: TDataSet);
-var
-  Afilter:string;//过滤语句
-  Strbah:string;    //病案号
-begin
-  inherited;
-  if not DLCDSLocal.Active then Exit;
-  
-  if DLCDSLocal.RecordCount <1 then Exit;
-  Strbah := DLCDSLocal.FieldByName('CH0A01').AsString;
-  Afilter :=  Format('CH0A01=%s',[QuotedStr(Strbah)]);
-  DLCDSHistory.Filtered :=False;
-  DLCDSHistory.Filter :=Afilter ;
-  DLCDSHistory.Filtered := True;
 end;
 
 
@@ -196,17 +190,11 @@ begin
   DLCDSHistory.Mid_Open(sql);
   if DLCDSHistory.RecordCount > 0 then
   begin
-    DLCDSHistory.Filtered :=True;
-    DLCDSHistory.Filter := ' 1<>1';
-    DLCDSHistory.Filtered := False;
+    DLCDSHistory.Filtered :=False;
+    DLCDSHistory.Filter := ' 1>1';
+    DLCDSHistory.Filtered := True;
+    dbgrdhBaHistory.DataSource := dsHistory;
   end;
-end;
-
-procedure TFrmBaSy.Timer1Timer(Sender: TObject);
-begin
-  inherited;
-  Timer1.Enabled :=False;
-  GetBazkHistory;
 end;
 
 initialization

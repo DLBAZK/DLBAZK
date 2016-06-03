@@ -38,13 +38,9 @@ type
     procedure suiedtZYHKeyPress(Sender: TObject; var Key: Char);
     procedure suiedtZYHKeyDown(Sender: TObject; var Key: Word;
       Shift: TShiftState);
-    procedure dbgrdhBaListDblClick(Sender: TObject);
     procedure AdvbtnacSaveClick(Sender: TObject);
-    procedure dbgrdhBaListGetCellParams(Sender: TObject; Column: TColumnEh;
-      AFont: TFont; var Background: TColor; State: TGridDrawState);
-    procedure dbgrdhPJDetailGetFooterParams(Sender: TObject; DataCol,
-      Row: Integer; Column: TColumnEh; AFont: TFont; var Background: TColor;
-      var Alignment: TAlignment; State: TGridDrawState; var Text: string);
+
+    procedure dbgrdhBaListCellClick(Column: TColumnEh);
   private
     { Private declarations }
     CH0A00:string;    //住院号
@@ -87,6 +83,7 @@ var
   FCode,SCode,TCode,Code:string;
   Score:Double;
   Remark:string;
+  mark:Pointer;
 begin
   inherited;
   //判断师傅存在数据
@@ -105,37 +102,41 @@ begin
   try
     //删除上次评价
     TMidProxy.SqlExecute(sql);
+    mark := clientdtPJDetail.GetBookmark;
     with clientdtPJDetail do
     begin
-      DisableControls;
-      First;
-      while not Eof do
-      begin
-        FCode := FieldByName('Fcode').AsString; //主项目编号
-        SCode := FieldByName('Scode').AsString;//次项目编号
-        TCode := FieldByName('Tcode').AsString;//细项目编号
-        Score := FieldByName('Score').AsFloat; //分数
-        Remark := DelStrTabDot(FieldByName('Remark').AsString);      //其他问题
-        if TCode = '' then
+      try
+        DisableControls;
+        First;
+        while not Eof do
         begin
-          if SCode = '' then
-            Code := FCode
+          FCode := FieldByName('Fcode').AsString; //主项目编号
+          SCode := FieldByName('Scode').AsString;//次项目编号
+          TCode := FieldByName('Tcode').AsString;//细项目编号
+          Score := FieldByName('Score').AsFloat; //分数
+          Remark := DelStrTabDot(FieldByName('Remark').AsString);      //其他问题
+          if TCode = '' then
+          begin
+            if SCode = '' then
+              Code := FCode
+            else
+              Code := SCode;
+          end
           else
-            Code := SCode;          
-        end
-        else
-          Code := TCode;
-        
-          
-        sql := Format('insert into VsBAZmPj(CH0A00,Code,Score,Remark) values(^%s^,^%s^,%f,^%s^)',[CH0A00,Code,Score,Remark]) ;
-        TMidProxy.SqlExecute(sql);
-        Next;
-      end;
-      First;
-      EnableControls;
-    end;
-  finally
+            Code := TCode;
 
+          sql := Format('insert into VsBAZmPj(CH0A00,Code,Score,Remark) values(^%s^,^%s^,%f,^%s^)',[CH0A00,Code,Score,Remark]) ;
+          TMidProxy.SqlExecute(sql);
+          Next;
+        end;
+      finally
+        EnableControls;
+      end;
+    end;
+    ShowMsgSure('保存完成');
+  finally
+    clientdtPJDetail.GotoBookmark(mark);
+    clientdtPJDetail.FreeBookmark(mark);
   end;
 
 end;
@@ -152,12 +153,13 @@ begin
     begin
       ShowMsgSure('尚未筛选病历,无法评价质量!');
       Exit;
-
-    end;
+    end
+    else
+      SetSbSimpleText(Format('共计：%d条数据',[DLCDS.RecordCount]));
   end;
 end;
 
-procedure TFrmBaPJ.dbgrdhBaListDblClick(Sender: TObject);
+procedure TFrmBaPJ.dbgrdhBaListCellClick(Column: TColumnEh);
 const
   execSql ='exec PBAzmpj ^%s^' ;
 var
@@ -169,47 +171,17 @@ begin
     if not DLCDS.Active then Exit;
     if DLCDS.IsEmpty then Exit;
     CH0A00 := DLCDS.FieldByName('CH0A00').AsString;
-    if clientdtPJDetail.Active then    
+    if clientdtPJDetail.Active then
       clientdtPJDetail.EmptyDataSet;
     sql := Format(execSql,[CH0A00]);
     TMidProxy.SqlOpen(sql,clientdtPJDetail);
+    WriteDeBug(Format('获取%s病历质量评价信息',[CH0A00]));
   finally
 
   end;
+
 end;
 
-procedure TFrmBaPJ.dbgrdhBaListGetCellParams(Sender: TObject; Column: TColumnEh;
-  AFont: TFont; var Background: TColor; State: TGridDrawState);
-begin
-  inherited;
-  if dbgrdhBaList.SumList.RecNo mod 2 = 0 then
-    Background := clSkyBlue
-  else
-    Background :=clYellow;
-end;
-
-procedure TFrmBaPJ.dbgrdhPJDetailGetFooterParams(Sender: TObject; DataCol,
-  Row: Integer; Column: TColumnEh; AFont: TFont; var Background: TColor;
-  var Alignment: TAlignment; State: TGridDrawState; var Text: string);
-var
- score:Double;
-begin
-  inherited;
-  Exit;
-  if Text = '' then Exit;
-  if not Assigned(Column.Field) then   Exit;
-
-  if UpperCase(Column.Field.FieldName) <>'SCORE' then Exit;
-
-  try
-    score := StrToFloat(Text);
-    if score - 100 < 0 then
-      dbgrdhPJDetail.FooterColor := clRed;
-  finally
-
-  end;
-  
-end;
 
 procedure TFrmBaPJ.suiedtZYHKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);

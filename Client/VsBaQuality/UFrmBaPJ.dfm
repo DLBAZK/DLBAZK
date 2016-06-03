@@ -17,7 +17,9 @@ inherited FrmBaPJ: TFrmBaPJ
     ExplicitWidth = 1238
     inherited AdvPage1: TAdvPage
       Width = 1230
+      Height = 0
       ExplicitWidth = 1230
+      ExplicitHeight = 0
     end
   end
   inherited AdvPanel1: TAdvPanel
@@ -113,9 +115,9 @@ inherited FrmBaPJ: TFrmBaPJ
           OnKeyPress = suiedtZYHKeyPress
         end
         object AdvbtnActLocate: TAdvGlowButton
-          Left = 202
+          Left = 184
           Top = 13
-          Width = 90
+          Width = 109
           Height = 32
           Action = ActLocate
           AutoSize = True
@@ -132,7 +134,7 @@ inherited FrmBaPJ: TFrmBaPJ
           NotesFont.Name = 'Tahoma'
           NotesFont.Style = []
           ParentFont = False
-          Position = bpLeft
+          Position = bpMiddle
           TabOrder = 1
           Appearance.ColorChecked = 16111818
           Appearance.ColorCheckedTo = 16367008
@@ -150,7 +152,6 @@ inherited FrmBaPJ: TFrmBaPJ
           Appearance.ColorMirrorCheckedTo = 16768988
           Appearance.ColorMirrorDisabled = 11974326
           Appearance.ColorMirrorDisabledTo = 15921906
-          Layout = blGlyphLeftAdjusted
         end
       end
       object dbgrdhBaList: TDBGridEh
@@ -184,8 +185,7 @@ inherited FrmBaPJ: TFrmBaPJ
         TitleFont.Height = -14
         TitleFont.Name = #24494#36719#38597#40657
         TitleFont.Style = []
-        OnDblClick = dbgrdhBaListDblClick
-        OnGetCellParams = dbgrdhBaListGetCellParams
+        OnCellClick = dbgrdhBaListCellClick
         Columns = <
           item
             EditButtons = <>
@@ -287,9 +287,9 @@ inherited FrmBaPJ: TFrmBaPJ
           Appearance.ColorMirrorDisabledTo = 15921906
         end
         object AdvbtnClose: TAdvGlowButton
-          Left = 757
+          Left = 752
           Top = 1
-          Width = 85
+          Width = 90
           Height = 45
           Align = alRight
           Action = acClose
@@ -361,7 +361,6 @@ inherited FrmBaPJ: TFrmBaPJ
         TitleFont.Name = #24494#36719#38597#40657
         TitleFont.Style = []
         UseMultiTitle = True
-        OnGetFooterParams = dbgrdhPJDetailGetFooterParams
         Columns = <
           item
             Alignment = taCenter

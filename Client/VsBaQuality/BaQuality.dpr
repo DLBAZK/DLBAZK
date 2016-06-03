@@ -21,11 +21,11 @@ uses
   UFrmSuiDBForm in '..\BaseForm\UFrmSuiDBForm.pas' {FrmSuiDBForm},
   UFrmSuiDBListForm in '..\BaseForm\UFrmSuiDBListForm.pas' {FrmSuiDBListForm},
   UFrmBaSy in 'UFrmBaSy.pas' {FrmBaSy},
-  UFrmZkDetail in 'UFrmZkDetail.pas' {FrmZkDetail},
   UGFun in '..\..\Public\UGFun.pas',
   UGVar in '..\..\Public\UGVar.pas',
   UVsBaSx in 'UVsBaSx.pas' {FrmBaSx},
-  UFrmBaPJ in 'UFrmBaPJ.pas' {FrmBaPJ};
+  UFrmBaPJ in 'UFrmBaPJ.pas' {FrmBaPJ},
+  UFrmZkDetail in 'UFrmZkDetail.pas' {FrmZkDetail};
 
 {$R *.res}
 Function DllObjFactory(MainInfo:TMainInfo;FormClass:String):TFormClass;

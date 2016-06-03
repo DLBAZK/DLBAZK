@@ -17,7 +17,9 @@ inherited FrmBaSy: TFrmBaSy
     ExplicitWidth = 967
     inherited AdvPage1: TAdvPage
       Width = 959
+      Height = 0
       ExplicitWidth = 959
+      ExplicitHeight = 0
     end
   end
   inherited AdvPanel1: TAdvPanel
@@ -57,7 +59,7 @@ inherited FrmBaSy: TFrmBaSy
       StatusBar.Font.Style = []
       FullHeight = 200
       object AdvSplitter1: TAdvSplitter
-        Left = 454
+        Left = 289
         Top = 1
         Height = 501
         Appearance.BorderColor = clNone
@@ -74,7 +76,7 @@ inherited FrmBaSy: TFrmBaSy
       object suiGroupBox1: TsuiGroupBox
         Left = 1
         Top = 1
-        Width = 453
+        Width = 288
         Height = 501
         UIStyle = DeepBlue
         Align = alLeft
@@ -91,7 +93,7 @@ inherited FrmBaSy: TFrmBaSy
         object dbgrdhBarecord: TDBGridEh
           Left = 3
           Top = 16
-          Width = 447
+          Width = 282
           Height = 482
           Align = alClient
           DataGrouping.GroupLevels = <>
@@ -118,7 +120,7 @@ inherited FrmBaSy: TFrmBaSy
           TitleFont.Height = -14
           TitleFont.Name = #24494#36719#38597#40657
           TitleFont.Style = []
-          OnGetCellParams = dbgrdhBarecordGetCellParams
+          OnCellClick = dbgrdhBarecordCellClick
           Columns = <
             item
               EditButtons = <>
@@ -130,6 +132,7 @@ inherited FrmBaSy: TFrmBaSy
               Font.Style = []
               Footers = <>
               ReadOnly = True
+              Title.Alignment = taCenter
               Title.Caption = #30149#26696#21495
               Width = 100
             end
@@ -143,11 +146,14 @@ inherited FrmBaSy: TFrmBaSy
               Font.Style = []
               Footers = <>
               ReadOnly = True
+              Title.Alignment = taCenter
               Title.Caption = #22995#21517
               Width = 90
             end
             item
+              Alignment = taCenter
               EditButtons = <>
+              FieldName = 'Score'
               Font.Charset = ANSI_CHARSET
               Font.Color = clBlack
               Font.Height = -14
@@ -155,16 +161,18 @@ inherited FrmBaSy: TFrmBaSy
               Font.Style = []
               Footers = <>
               ReadOnly = True
+              Title.Alignment = taCenter
               Title.Caption = #20998#20540
+              Width = 30
             end>
           object RowDetailData: TRowDetailPanelControlEh
           end
         end
       end
       object suiGroupBox2: TsuiGroupBox
-        Left = 457
+        Left = 292
         Top = 1
-        Width = 509
+        Width = 674
         Height = 501
         UIStyle = DeepBlue
         Align = alClient
@@ -181,7 +189,7 @@ inherited FrmBaSy: TFrmBaSy
         object dbgrdhBaHistory: TDBGridEh
           Left = 3
           Top = 16
-          Width = 503
+          Width = 668
           Height = 482
           Align = alClient
           DataGrouping.GroupLevels = <>
@@ -209,21 +217,24 @@ inherited FrmBaSy: TFrmBaSy
           TitleFont.Name = #24494#36719#38597#40657
           TitleFont.Style = []
           OnDblClick = dbgrdhBaHistoryDblClick
-          OnGetCellParams = dbgrdhBaHistoryGetCellParams
           Columns = <
             item
+              Alignment = taCenter
               EditButtons = <>
               FieldName = 'times'
               Footers = <>
               ReadOnly = True
+              Title.Alignment = taCenter
               Title.Caption = #35780#20998#27425#25968
-              Width = 100
+              Width = 59
             end
             item
+              Alignment = taCenter
               EditButtons = <>
               FieldName = 'Score'
               Footers = <>
               ReadOnly = True
+              Title.Alignment = taCenter
               Title.Caption = #20998#20540
               Width = 90
             end
@@ -232,6 +243,7 @@ inherited FrmBaSy: TFrmBaSy
               FieldName = 'PFSJ'
               Footers = <>
               ReadOnly = True
+              Title.Alignment = taCenter
               Title.Caption = #35780#20998#26102#38388
             end>
           object RowDetailData: TRowDetailPanelControlEh
@@ -290,12 +302,12 @@ inherited FrmBaSy: TFrmBaSy
       Width = 967
       Height = 49
       Align = alTop
-      Color = 16640730
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -11
       Font.Name = 'Tahoma'
       Font.Style = []
+      ParentColor = True
       ParentFont = False
       TabOrder = 1
       UseDockManager = True
@@ -314,35 +326,37 @@ inherited FrmBaSy: TFrmBaSy
       StatusBar.Font.Name = 'Tahoma'
       StatusBar.Font.Style = []
       FullHeight = 200
-      object EllipsLabel1: TEllipsLabel
-        Left = 14
+      object Label1: TLabel
+        Left = 10
         Top = 20
         Width = 60
         Height = 20
         Caption = #20986#38498#26085#26399
-        Font.Charset = GB2312_CHARSET
+        Color = 16640730
+        Font.Charset = ANSI_CHARSET
         Font.Color = clWindowText
         Font.Height = -15
         Font.Name = #24494#36719#38597#40657
         Font.Style = []
+        ParentColor = False
         ParentFont = False
-        EllipsType = etNone
-        Version = '1.0.0.0'
+        Transparent = True
       end
-      object EllipsLabel2: TEllipsLabel
-        Left = 199
+      object Label2: TLabel
+        Left = 198
         Top = 20
         Width = 15
         Height = 20
         Caption = #33267
-        Font.Charset = GB2312_CHARSET
+        Color = 16640730
+        Font.Charset = ANSI_CHARSET
         Font.Color = clWindowText
         Font.Height = -15
         Font.Name = #24494#36719#38597#40657
         Font.Style = []
+        ParentColor = False
         ParentFont = False
-        EllipsType = etNone
-        Version = '1.0.0.0'
+        Transparent = True
       end
       object advDtpks: TAdvDateTimePicker
         Left = 82
@@ -397,9 +411,9 @@ inherited FrmBaSy: TFrmBaSy
         LabelFont.Style = []
       end
       object AdvbtnOK: TAdvGlowButton
-        Left = 373
+        Left = 368
         Top = 13
-        Width = 90
+        Width = 100
         Height = 32
         AutoSize = True
         Caption = #20998#26512
@@ -434,12 +448,11 @@ inherited FrmBaSy: TFrmBaSy
         Appearance.ColorMirrorCheckedTo = 16768988
         Appearance.ColorMirrorDisabled = 11974326
         Appearance.ColorMirrorDisabledTo = 15921906
-        DropDownPosition = dpBottom
       end
       object AdvbtnClose: TAdvGlowButton
-        Left = 472
-        Top = 13
-        Width = 81
+        Left = 496
+        Top = 12
+        Width = 100
         Height = 32
         Action = acClose
         Font.Charset = GB2312_CHARSET
@@ -489,7 +502,6 @@ inherited FrmBaSy: TFrmBaSy
   object DLCDSLocal: TDlClientDataset
     Aggregates = <>
     Params = <>
-    AfterScroll = DLCDSLocalAfterScroll
     Left = 40
     Top = 272
   end
@@ -510,7 +522,7 @@ inherited FrmBaSy: TFrmBaSy
     Top = 272
   end
   object Timer1: TTimer
-    OnTimer = Timer1Timer
+    Enabled = False
     Left = 208
     Top = 280
   end

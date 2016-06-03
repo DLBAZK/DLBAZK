@@ -94,10 +94,7 @@ type
     procedure AdvGlowButton1Click(Sender: TObject);
     procedure suiedtstartExit(Sender: TObject);
     procedure AdvbtnSaveClick(Sender: TObject);
-    procedure dbgrdhSourceGetCellParams(Sender: TObject; Column: TColumnEh;
-      AFont: TFont; var Background: TColor; State: TGridDrawState);
-    procedure dbgrdhDestGetCellParams(Sender: TObject; Column: TColumnEh;
-      AFont: TFont; var Background: TColor; State: TGridDrawState);
+    procedure AdvedtCH0A23KeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
     /// <summary>
@@ -154,32 +151,37 @@ begin
     begin
       if not clientdtDest.IsEmpty then
       begin
-        with clientdtDest do
-        begin
-          //保存数据到数据库
-          First;
-          while not Eof do
+        try
+          with clientdtDest do
           begin
-            CH0A00 := FieldByName('CH0A00').AsString;
-            CH0A01 := FieldByName('CH0A01').AsString;
-            CH0A02 := FieldByName('CH0A02').AsString;
-            CH0A03 := FieldByName('CH0A03').AsString;
-            if not IsExist(CH0A00) then            
+            DisableControls;
+            //保存数据到数据库
+            First;
+            while not Eof do
             begin
-              sql := Format('insert into VsPJBA0A values(%s,%s,%s,%s)',[Quotedstr(CH0A00),Quotedstr(CH0A01),Quotedstr(CH0A02),Quotedstr(CH0A03)]);
-              Application.ProcessMessages;
-              try
-                TMidProxy.SqlExecute(sql);
-              except
-                on ex:Exception do
-                begin
+              CH0A00 := FieldByName('CH0A00').AsString;
+              CH0A01 := FieldByName('CH0A01').AsString;
+              CH0A02 := FieldByName('CH0A02').AsString;
+              CH0A03 := FieldByName('CH0A03').AsString;
+              if not IsExist(CH0A00) then            
+              begin
+                sql := Format('insert into VsPJBA0A values(%s,%s,%s,%s)',[Quotedstr(CH0A00),Quotedstr(CH0A01),Quotedstr(CH0A02),Quotedstr(CH0A03)]);
+                Application.ProcessMessages;
+                try
+                  TMidProxy.SqlExecute(sql);
+                except
+                  on ex:Exception do
+                  begin
                   
+                  end;
                 end;
               end;
-            end;
             
-            Next;
+              Next;
+            end;
           end;
+        finally
+          clientdtDest.EnableControls;
         end;
       end;
     end;
@@ -206,6 +208,13 @@ begin
   inherited;
   if Key = VK_SPACE then
     FCH0A23:=ShowDM(sdm_ZyKs, AdvedtCH0A23);
+end;
+
+procedure TFrmBaSx.AdvedtCH0A23KeyPress(Sender: TObject; var Key: Char);
+begin
+  inherited;
+  if Key in ['!','@','#','$','%','^','&','*','(',')','`',',','.','/','[',']','\','|'] then
+    Key := #0;
 end;
 
 procedure TFrmBaSx.AdvGlowButton1Click(Sender: TObject);
@@ -283,6 +292,11 @@ begin
     ShowMsgSure('鉴于病案历史数据量过大，建议按条件搜索！');
     Exit;
   end;
+  if not dladvChkCH0A27.Checked then
+  begin
+    ShowMsgSure('鉴于病案历史数据量过大，建议选择出院日期条件查找');
+    Exit;
+  end;
   StartWaitWindow('正在筛选...');
   try
     clientdttmp := TClientDataSet.Create(nil);
@@ -313,6 +327,13 @@ begin
       begin
         clientdtSource.First;
         dbgrdhSource.DataSource := ds1;
+        SetSbSimpleText(Format('共计：%d条数据',[clientdtsource.RecordCount]));
+      end
+      else
+      begin
+        EndWaitWindow;
+        ShowMsgSure('未查询到符合条件的数据');
+        SetSbSimpleText('共计：0条数据');
       end;
     end;
   finally
@@ -329,27 +350,6 @@ begin
   dbgrdhDest.DataSource :=nil;
 end;
 
-procedure TFrmBaSx.dbgrdhDestGetCellParams(Sender: TObject; Column: TColumnEh;
-  AFont: TFont; var Background: TColor; State: TGridDrawState);
-begin
-  inherited;
-   if dbgrdhDest.SumList.RecNo mod 2 = 0 then
-    Background := clSkyBlue
-  else
-    Background :=clYellow;
-end;
-
-procedure TFrmBaSx.dbgrdhSourceGetCellParams(Sender: TObject; Column: TColumnEh;
-  AFont: TFont; var Background: TColor; State: TGridDrawState);
-begin
-  inherited;
-  if dbgrdhSource.SumList.RecNo mod 2 = 0 then
-    Background := clSkyBlue
-  else
-    Background :=clYellow;
-
-end;
-
 procedure TFrmBaSx.FlatbtnAllCancleClick(Sender: TObject);
 begin
   inherited;
@@ -362,6 +362,7 @@ procedure TFrmBaSx.FlatbtnAllRightClick(Sender: TObject);
 var
   tag:Integer;
   MyClass: TDlClientDataset;
+  mark:Pointer;
   //左移或右移
   procedure LeftOrRight(source,dest:TClientDataSet);
   begin
@@ -393,6 +394,7 @@ begin
      begin
        if not clientdtSource.Active then  Exit;
        if clientdtSource.RecordCount =0 then Exit;
+
        with clientdtSource do
        begin
          DisableControls;
@@ -421,21 +423,27 @@ begin
      begin
        if not clientdtSource.Active then  Exit;
        if clientdtSource.RecordCount =0 then Exit;
+       mark :=clientdtDest.GetBookmark;
        LeftOrRight(clientdtSource,clientdtDest);
        if clientdtSource.IsEmpty then
           dbgrdhSource.DataSource :=nil;
        if not clientdtDest.IsEmpty then
          dbgrdhDest.DataSource := dsDest;
+       clientdtDest.GotoBookmark(mark);
+       clientdtDest.FreeBookmark(mark);
      end;
      2:  //选中左移
      begin
        if not clientdtDest.Active then Exit;
        if clientdtDest.RecordCount = 0 then Exit;
+       mark := clientdtSource.GetBookmark;
        LeftOrRight(clientdtDest,clientdtSource);
        if clientdtDest.IsEmpty then
          dbgrdhDest.DataSource :=nil;
        if not clientdtSource.IsEmpty then
          dbgrdhSource.DataSource := ds1;
+       clientdtSource.GotoBookmark(mark);
+       clientdtSource.FreeBookmark(mark);
      end;
      3:  //全部左移
      begin
