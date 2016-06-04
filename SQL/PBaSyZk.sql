@@ -1,6 +1,6 @@
 ﻿USE [batj2005]
 GO
-/****** Object:  StoredProcedure [dbo].[PBaSyZk]    Script Date: 05/24/2016 09:45:19 ******/
+/****** Object:  StoredProcedure [dbo].[PBaSyZk]    Script Date: 06/02/2016 09:59:10 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -74,7 +74,7 @@ BEGIN
 	  -------------创建病案首页质控项目评分字典表的游标----------------------------------
 	Declare a_Cursor cursor for
 	
-		select dm,xmfz,sSql from Vssjpf where isTy > 0  ---查询启用的评价条件
+		select dm,xmfz,sSql from Vssjpf where isTy = 0  ---查询启用的评价条件
 		
 	Open a_Cursor 
 	FETCH NEXT FROM a_Cursor INTO @PFMC,@PFFZ,@PFSQL
@@ -83,7 +83,8 @@ BEGIN
 	    
 		--------------------根据评分字典表 审核病案数据，记录插入VsBAsyzk-----------------------------
 		set @historySql ='Insert  VsBAsyzk' 
-						+' select Ch0A01,'''+@PFMC+''','+@PFFZ+','''+@UserName+''','+@PFSJ+' from #CH0A A where '+@PFSQL
+						+' select Ch0A01,'''+@PFMC+''','+convert(varchar(10),@PFFZ)+','''+@UserName+''','''+Convert(varchar(100),@PFSJ,120)
+						+''' from #CH0A A where '+@PFSQL
 						
 	    print(@historySql)
 		Execute(@historySql)
