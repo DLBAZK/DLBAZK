@@ -17,7 +17,7 @@ uses
   DBClient, UDlClientDataset, DosMove, AdvPanel, AdvAppStyler, AdvToolBar,
   AdvToolBarStylers, AdvOfficeStatusBar, AdvOfficeStatusBarStylers, ExtCtrls,
   DBGridEhGrouping, AdvSplitter, GridsEh, DBGridEh, TFlatButtonUnit,
-  TFlatPanelUnit, AdvEdit, AdvOfficeButtons, UDLAdvCheckBox;
+  TFlatPanelUnit, AdvEdit, AdvOfficeButtons, UDLAdvCheckBox, AdvEdBtn;
 
 type
   TFrmBaSx = class(TFrmSuiDBForm)
@@ -51,7 +51,6 @@ type
     FlatbtnRight: TFlatButton;
     FlatbtnLeft: TFlatButton;
     FlatbtnAllLeft: TFlatButton;
-    AdvedtCH0A23: TAdvEdit;
     dladvChkCH0A23: TDLAdvCheckBox;
     dladvChkCH0A27: TDLAdvCheckBox;
     dladvChkZyts: TDLAdvCheckBox;
@@ -82,19 +81,21 @@ type
     AdvbtnSave: TAdvGlowButton;
     AdvSplitter1: TAdvSplitter;
     AdvbtnClose: TAdvGlowButton;
+    AdvedtCH0A23: TAdvEditBtn;
     procedure suiedtstartKeyPress(Sender: TObject; var Key: Char);
     procedure FlatbtnAllRightClick(Sender: TObject);
-    procedure AdvedtCH0A23KeyDown(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
-    procedure AdvedtCH0A23Enter(Sender: TObject);
-    procedure AdvedtCH0A23Exit(Sender: TObject);
     procedure suichkAllClick(Sender: TObject);
     procedure FlatbtnCancleClick(Sender: TObject);
     procedure FlatbtnAllCancleClick(Sender: TObject);
     procedure AdvGlowButton1Click(Sender: TObject);
     procedure suiedtstartExit(Sender: TObject);
     procedure AdvbtnSaveClick(Sender: TObject);
+    procedure AdvedtCH0A23KeyDown(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
     procedure AdvedtCH0A23KeyPress(Sender: TObject; var Key: Char);
+    procedure AdvedtCH0A23Enter(Sender: TObject);
+    procedure AdvedtCH0A23Exit(Sender: TObject);
+    procedure AdvedtCH0A23ClickBtn(Sender: TObject);
   private
     { Private declarations }
     /// <summary>
@@ -121,6 +122,8 @@ type
     /// <param name="BAH">病案号</param>
     /// <returns></returns>
     function IsExist(BAH:string):Boolean;
+
+    procedure  InitControl;override;
   public
     { Public declarations }
   end;
@@ -188,33 +191,6 @@ begin
   finally
     EndWaitWindow;
   end;
-end;
-
-procedure TFrmBaSx.AdvedtCH0A23Enter(Sender: TObject);
-begin
-  inherited;
-  SetSbSimpleText('请按空格键获取代码帮助');
-end;
-
-procedure TFrmBaSx.AdvedtCH0A23Exit(Sender: TObject);
-begin
-  inherited;
-  SetSbSimpleText('');
-end;
-
-procedure TFrmBaSx.AdvedtCH0A23KeyDown(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
-begin
-  inherited;
-  if Key = VK_SPACE then
-    FCH0A23:=ShowDM(sdm_ZyKs, AdvedtCH0A23);
-end;
-
-procedure TFrmBaSx.AdvedtCH0A23KeyPress(Sender: TObject; var Key: Char);
-begin
-  inherited;
-  if Key in ['!','@','#','$','%','^','&','*','(',')','`',',','.','/','[',']','\','|'] then
-    Key := #0;
 end;
 
 procedure TFrmBaSx.AdvGlowButton1Click(Sender: TObject);
@@ -348,6 +324,7 @@ begin
   clientdtDest.CreateDataSet;
   dbgrdhSource.DataSource :=nil;
   dbgrdhDest.DataSource :=nil;
+  InitControl;
 end;
 
 procedure TFrmBaSx.FlatbtnAllCancleClick(Sender: TObject);
@@ -484,6 +461,17 @@ begin
   suichkAll.Checked :=False;
   suichkinverse.Checked := False;
   SetDataCheck(clientdtSource,False,True);
+end;
+
+procedure TFrmBaSx.InitControl;
+begin
+  inherited;
+  dladvChkCH0A27.AddStateControls([advDtpks,advDtpjs]);
+  dladvChkZyts.AddStateControls([suiedtstart,suiedtEnd]);
+  dladvChkCH0A23.AddStateControls([AdvedtCH0A23]);
+  dladvChkCH0A27.checked :=False;
+  dladvChkZyts.checked := False;
+  dladvChkCH0A23.checked := False;
 end;
 
 function TFrmBaSx.IsExist(BAH: string): Boolean;
@@ -641,6 +629,39 @@ begin
       end;
     end;
   end;
+end;
+
+procedure TFrmBaSx.AdvedtCH0A23ClickBtn(Sender: TObject);
+begin
+  inherited;
+  FCH0A23:=ShowDM(sdm_ZyKs, TAdvEdit(Sender));
+end;
+
+procedure TFrmBaSx.AdvedtCH0A23Enter(Sender: TObject);
+begin
+  inherited;
+ //  SetSbSimpleText('请按空格键获取代码帮助');
+end;
+
+procedure TFrmBaSx.AdvedtCH0A23Exit(Sender: TObject);
+begin
+  inherited;
+  SetSbSimpleText('');
+end;
+
+procedure TFrmBaSx.AdvedtCH0A23KeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  inherited;
+  if Key = VK_SPACE then
+    FCH0A23:=ShowDM(sdm_ZyKs, TAdvEdit(Sender));
+end;
+
+procedure TFrmBaSx.AdvedtCH0A23KeyPress(Sender: TObject; var Key: Char);
+begin
+  inherited;
+   if Key in ['!','@','#','$','%','^','&','*','(',')','`',',','.','/','[',']','\','|'] then
+    Key := #0;
 end;
 
 procedure TFrmBaSx.suiedtstartExit(Sender: TObject);

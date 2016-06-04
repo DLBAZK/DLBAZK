@@ -103,7 +103,7 @@ inherited FrmBaSx: TFrmBaSx
           Font.Name = #24494#36719#38597#40657
           Font.Style = []
           ParentFont = False
-          TabOrder = 8
+          TabOrder = 7
           Alignment = taLeftJustify
           Caption = #20303#38498#22825#25968'                             '#21040
           ReturnIsTab = False
@@ -120,7 +120,7 @@ inherited FrmBaSx: TFrmBaSx
           Font.Name = #24494#36719#38597#40657
           Font.Style = []
           ParentFont = False
-          TabOrder = 7
+          TabOrder = 6
           Alignment = taLeftJustify
           Caption = #20986#38498#26085#26399'                             '#21040
           ReturnIsTab = False
@@ -133,6 +133,7 @@ inherited FrmBaSx: TFrmBaSx
           Height = 25
           Date = 42507.468182870370000000
           Time = 42507.468182870370000000
+          Enabled = False
           Font.Charset = ANSI_CHARSET
           Font.Color = clWindowText
           Font.Height = -12
@@ -158,6 +159,7 @@ inherited FrmBaSx: TFrmBaSx
           Height = 25
           Date = 42507.468182870370000000
           Time = 42507.468182870370000000
+          Enabled = False
           Font.Charset = ANSI_CHARSET
           Font.Color = clWindowText
           Font.Height = -12
@@ -183,17 +185,19 @@ inherited FrmBaSx: TFrmBaSx
           Height = 19
           UIStyle = WinXP
           BorderColor = 6842472
+          Enabled = False
           TabOrder = 2
           OnExit = suiedtstartExit
           OnKeyPress = suiedtstartKeyPress
         end
         object suiedtEnd: TsuiEdit
           Left = 223
-          Top = 57
+          Top = 56
           Width = 90
           Height = 19
           UIStyle = WinXP
           BorderColor = 6842472
+          Enabled = False
           TabOrder = 3
           OnExit = suiedtstartExit
           OnKeyPress = suiedtstartKeyPress
@@ -236,33 +240,6 @@ inherited FrmBaSx: TFrmBaSx
           Appearance.ColorMirrorDisabled = 11974326
           Appearance.ColorMirrorDisabledTo = 15921906
         end
-        object AdvedtCH0A23: TAdvEdit
-          Left = 408
-          Top = 17
-          Width = 121
-          Height = 23
-          EmptyTextStyle = []
-          LabelFont.Charset = DEFAULT_CHARSET
-          LabelFont.Color = clWindowText
-          LabelFont.Height = -11
-          LabelFont.Name = 'Tahoma'
-          LabelFont.Style = []
-          Lookup.Separator = ';'
-          Color = clWindow
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -12
-          Font.Name = #24494#36719#38597#40657
-          Font.Style = []
-          ParentFont = False
-          TabOrder = 5
-          Visible = True
-          OnEnter = AdvedtCH0A23Enter
-          OnExit = AdvedtCH0A23Exit
-          OnKeyDown = AdvedtCH0A23KeyDown
-          OnKeyPress = AdvedtCH0A23KeyPress
-          Version = '2.9.4.1'
-        end
         object dladvChkCH0A23: TDLAdvCheckBox
           Left = 330
           Top = 20
@@ -274,7 +251,7 @@ inherited FrmBaSx: TFrmBaSx
           Font.Name = #24494#36719#38597#40657
           Font.Style = []
           ParentFont = False
-          TabOrder = 6
+          TabOrder = 5
           Alignment = taLeftJustify
           Caption = #20986#38498#31185#23460
           ReturnIsTab = False
@@ -291,7 +268,7 @@ inherited FrmBaSx: TFrmBaSx
           Font.Name = #24494#36719#38597#40657
           Font.Style = []
           ParentFont = False
-          TabOrder = 9
+          TabOrder = 8
           Alignment = taLeftJustify
           Caption = #27515#20129
           ReturnIsTab = False
@@ -308,7 +285,7 @@ inherited FrmBaSx: TFrmBaSx
           Font.Name = #24494#36719#38597#40657
           Font.Style = []
           ParentFont = False
-          TabOrder = 10
+          TabOrder = 9
           Alignment = taLeftJustify
           Caption = #25163#26415
           ReturnIsTab = False
@@ -332,7 +309,7 @@ inherited FrmBaSx: TFrmBaSx
           NotesFont.Name = 'Tahoma'
           NotesFont.Style = []
           ParentFont = False
-          TabOrder = 11
+          TabOrder = 10
           Appearance.BorderColor = 12631218
           Appearance.BorderColorHot = 10079963
           Appearance.BorderColorDown = 4548219
@@ -361,6 +338,34 @@ inherited FrmBaSx: TFrmBaSx
           Appearance.GradientDown = ggVertical
           Appearance.GradientMirrorDown = ggVertical
           Appearance.GradientChecked = ggVertical
+        end
+        object AdvedtCH0A23: TAdvEditBtn
+          Left = 407
+          Top = 21
+          Width = 129
+          Height = 24
+          EmptyTextStyle = []
+          Flat = False
+          LabelFont.Charset = DEFAULT_CHARSET
+          LabelFont.Color = clWindowText
+          LabelFont.Height = -11
+          LabelFont.Name = 'Tahoma'
+          LabelFont.Style = []
+          Lookup.Separator = ';'
+          Color = clWindow
+          Enabled = False
+          ReadOnly = False
+          TabOrder = 11
+          Visible = True
+          OnEnter = AdvedtCH0A23Enter
+          OnExit = AdvedtCH0A23Exit
+          OnKeyDown = AdvedtCH0A23KeyDown
+          OnKeyPress = AdvedtCH0A23KeyPress
+          Version = '1.3.3.4'
+          ButtonStyle = bsButton
+          ButtonWidth = 16
+          Etched = False
+          OnClickBtn = AdvedtCH0A23ClickBtn
         end
       end
     end
@@ -747,7 +752,6 @@ inherited FrmBaSx: TFrmBaSx
           Appearance.ColorMirrorCheckedTo = 16768988
           Appearance.ColorMirrorDisabled = 11974326
           Appearance.ColorMirrorDisabledTo = 15921906
-          ExplicitHeight = 50
         end
       end
     end
