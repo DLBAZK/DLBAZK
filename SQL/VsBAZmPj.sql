@@ -12,7 +12,7 @@ SET ANSI_PADDING ON
 GO
 
 CREATE TABLE [dbo].[VsBAZmPj](
-	[CH0A00] [varchar](10) NOT NULL,
+	[CH0A00] [varchar](50) NOT NULL,
 	[Code] [varchar](15) NOT NULL,
 	[Score] [numeric](5, 2) NULL,
 	[Remark] [varchar](1000) NULL,

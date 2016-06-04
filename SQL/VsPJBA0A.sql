@@ -12,9 +12,9 @@ SET ANSI_PADDING ON
 GO
 
 CREATE TABLE [dbo].[VsPJBA0A](
-	[CH0A00] [varchar](15) NOT NULL,
-	[CH0A01] [varchar](10) NOT NULL,
-	[CH0A02] [varchar](20) NULL,
+	[CH0A00] [varchar](50) NOT NULL,
+	[CH0A01] [varchar](50) NOT NULL,
+	[CH0A02] [varchar](50) NULL,
 	[CH0A03] [nchar](1) NULL,
  CONSTRAINT [PK_VsPJBA0A] PRIMARY KEY CLUSTERED 
 (
