@@ -116,9 +116,9 @@ else
   insert into VsMidOper(MidOperCode,MidOperName,MidOperLib,MidOperEnu,MidOperDes) 
      VALUES  (404,'TVsBaSx','200025','EuVsBaSx','病案筛选中间层')	    
      
- if  exists(select * from VsMidOper where MidOperCode ='406')
+ if  exists(select * from VsMidOper where MidOperCode ='407')
 begin
-	delete from VsMidOper where MidOperCode = '406'
+	delete from VsMidOper where MidOperCode = '407'
 	insert into VsMidOper(MidOperCode,MidOperName,MidOperLib,MidOperEnu,MidOperDes) 
      VALUES  (407,'TVsBaZmPj','200025','EuVsBaZmPj','病案终末评价中间层')	
 end
