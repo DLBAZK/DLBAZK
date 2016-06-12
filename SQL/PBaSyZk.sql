@@ -83,13 +83,11 @@ BEGIN
 	    
 		--------------------根据评分字典表 审核病案数据，记录插入VsBAsyzk-----------------------------
 		set @historySql ='Insert  VsBAsyzk' 
-<<<<<<< HEAD
 						+' select Ch0A01,'''+@PFMC+''','+convert(varchar(10),@PFFZ)+','''+@UserName+''','''+Convert(varchar(100),@PFSJ,120)
 						+''' from #CH0A A where '+@PFSQL
-=======
-				+' select Ch0A01,'''+@PFMC+''','+convert(varchar(10),@PFFZ)+','''+@UserName+''','''+Convert(varchar(100),@PFSJ,120)
-				+''' from #CH0A A where '+@PFSQL
->>>>>>> 39af27feeae05d1e137fd18598ddb6400789a0da
+				        +' select Ch0A01,'''+@PFMC+''','+convert(varchar(10),@PFFZ)+','''+@UserName+''','''+Convert(varchar(100),@PFSJ,120)
+				        +''' from #CH0A A where '+@PFSQL
+
 						
 	    print(@historySql)
 		Execute(@historySql)

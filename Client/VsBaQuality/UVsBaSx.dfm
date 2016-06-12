@@ -94,7 +94,7 @@ inherited FrmBaSx: TFrmBaSx
         TabOrder = 0
         object dladvChkZyts: TDLAdvCheckBox
           Left = 9
-          Top = 56
+          Top = 53
           Width = 208
           Height = 33
           Font.Charset = ANSI_CHARSET
@@ -343,7 +343,7 @@ inherited FrmBaSx: TFrmBaSx
           Left = 407
           Top = 21
           Width = 129
-          Height = 24
+          Height = 26
           EmptyTextStyle = []
           Flat = False
           LabelFont.Charset = DEFAULT_CHARSET
